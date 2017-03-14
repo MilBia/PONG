@@ -1,0 +1,13 @@
+[Inputs]
+E0
+F0
+RS2_Rdy
+Clr
+Clk
+=D_in[7:0]=
+[Outputs]
+ENTER
+ESC
+=P1[2:0]=
+=P2[2:0]=
+[BiDir]

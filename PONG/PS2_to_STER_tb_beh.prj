@@ -1,0 +1,2 @@
+vhdl work "PS2_to_STER.vhd"
+vhdl work "PS2_to_STER_tb.vhd"

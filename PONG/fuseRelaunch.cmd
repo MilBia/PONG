@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "D:/NAUKA/Xilinx/PONG/PS2_to_STER_tb_isim_beh.exe" -prj "D:/NAUKA/Xilinx/PONG/PS2_to_STER_tb_beh.prj" "work.PS2_to_STER_tb" 

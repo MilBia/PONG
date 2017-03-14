@@ -1,0 +1,12 @@
+[Inputs]
+ENTER
+ESC
+CLK
+CLR
+=X[9:0]=
+=Y[9:0]=
+=P1[2:0]=
+=P2[2:0]=
+[Outputs]
+=RGB[2:0]=
+[BiDir]
