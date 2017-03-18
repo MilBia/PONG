@@ -49,12 +49,12 @@ signal Clock : STD_LOGIC;
 signal  Xi :  Integer range 0 to 1023;
 signal  Yi :  Integer range 0 to 1023;
 --wspó³rzêdne pi³eczki
-signal  Xkw: Integer range 0 to 1023;
-signal  Ykw: Integer range 0 to 1023;
+signal  Xkw: Integer range 0 to 640;
+signal  Ykw: Integer range 0 to 480;
 --co ile odswierzyæ po³o¿enie pi³eczki
-signal  temp: Integer range 0 to 1023;
+signal  temp: Integer range 0 to 511;
 --rozmiar pi³eczki
-constant R :  Integer:=40;
+constant R :  Integer:=10;
 --wsad sterownika
 signal  P1i :  STD_LOGIC_VECTOR (2 downto 0);
 signal  P2i :  STD_LOGIC_VECTOR (2 downto 0);
@@ -77,7 +77,7 @@ Yi <= TO_INTEGER( UNSIGNED( y));
 P1i <= P1;
 P2i <= P2;
 
-Cloc: process (Clock, CLR)
+Cloc: process (CLK, CLR)
 begin
 	if CLR = '1' then
 		Clock <= '0';
@@ -86,7 +86,7 @@ begin
    end if;
 end process;
 
-gra : process(P1, P2, CLK,CLR)
+gra : process(P1, P2, Clock, CLR)
 begin
 	if CLR = '1' then
 		RGB <= "000";
@@ -94,64 +94,78 @@ begin
       Ykw <= 0;
       Vx <='1';
       Vy <='1';
-      Xkw <= 279;
-      Ykw <= 0;
+      Xkw <= 40;
+      Ykw <= 200;
       temp <= 0;
 		pkt1 <= "000";
-		pkt1 <= "000";
+		pkt2 <= "000";
 		pal1 <= 190;
-		pal1 <= 190;
-	else
+		pal2 <= 190;
+   elsif rising_edge( Clock ) then
 		--wyswietlanie
       if Xi> Xkw and Xi<Xkw+R and Yi>Ykw and Yi<Ykw+R then
 				RGB <="111";
-			elsif Xi > 20 and Xi< 40 and Yi>pal1 and Yi<pal1+palY  then
-				RGB <="100";
-			elsif Xi > 439 and Xi< 459 and Yi>pal2 and Yi<pal2+palY  then
+			elsif Xi > 619 and Xi< 639 and Yi>pal1 and Yi<pal1+palY  then
 				RGB <="001";
+			elsif Xi > 20 and Xi< 40 and Yi>pal2 and Yi<pal2+palY  then
+				RGB <="100";
 			else
 				RGB <="000";
 		end if;
 		
-		--sterowanie paletk¹1
-      if (P1i = "000" or P1i = "011") and pal1-1>0 then
-				pal1 <= pal1 - 1 ;
-			elsif (P1i = "001" or P1i = "010") and pal1+1+palY<479 then
-				pal1 <= pal1 + 1 ;
-		end if;
-		
-		--sterowanie paletk¹2
-      if (P2i = "000" or P2i = "011") and pal2-1>0 then
-				pal2 <= pal2 - 1 ;
-			elsif (P2i = "001" or P2i = "010") and pal2+1+palY<479 then
-				pal2 <= pal2 + 1 ;
-		end if;
-		
-		--sterowanie pi³eczk¹
+		--sterowanie pi³eczk¹ / zwolnienie zegara
       if Yi = 479 then
          temp <= temp +1;
-         if temp = 150 then
-            temp <= 0;
+         if temp = 0 then
+         --PI£ECZAK
+            --temp <= 0;
             --kolizje
-				--prawa / lewa banda
-            if Xkw+R = 639 or Xkw=0 then
-               Vx <= not Vx;
-            end if;
-				--dolna / górna banda
-            if Ykw+R = 479 or Ykw=0 then
-               Vy <= not Vy;
-            end if;
+--				--prawa / lewa banda
+--            if (Xkw+R = 638 or Xkw=1) then
+--               Vx <= not Vx;
+--            end if;
+--				--dolna / górna banda
+--            if (Ykw+R = 478 or Ykw=1) then
+--               Vy <= not Vy;
+--            end if;
             --inkrementacje
-            if Vx ='1' then
-               Xkw <= Xkw +1;
-            else
-               Xkw <= Xkw -1;
-            end if;
             if Vy ='1' then
-               Ykw <= Ykw +1;
+               Ykw <= Ykw + 1;
+               if Ykw+R = 478 then
+                  Vy <= '0';
+               end if;
             else
-               Ykw <= Ykw -1;
+               Ykw <= Ykw - 1;
+               if Ykw = 1 then
+                  Vy <= '1';
+               end if;
             end if;
+            if Vx ='1' then
+               Xkw <= Xkw + 1;
+               if Xkw+R = 638 then
+                  Vx <= '0';
+               end if;
+            else
+               Xkw <= Xkw - 1;
+               if Xkw = 1 then
+                  Vx <= '1';
+               end if;
+            end if;
+         --PALETKI
+            --sterowanie paletk¹1
+            if (P1i = "000" or P1i = "011") and pal1-1>0 then
+                  pal1 <= pal1 - 1 ;
+               elsif (P1i = "001" or P1i = "010") and pal1+1+palY<479 then
+                  pal1 <= pal1 + 1 ;
+            end if;
+            
+            --sterowanie paletk¹2
+            if (P2i = "000" or P2i = "011") and pal2-1>0 then
+                  pal2 <= pal2 - 1 ;
+               elsif (P2i = "001" or P2i = "010") and pal2+1+palY<479 then
+                  pal2 <= pal2 + 1 ;
+            end if;
+            
          end if;
       
       

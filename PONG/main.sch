@@ -10,7 +10,6 @@
         <signal name="XLXN_2" />
         <signal name="XLXN_3" />
         <signal name="XLXN_4" />
-        <signal name="XLXN_5(7:0)" />
         <signal name="PS2_Clk" />
         <signal name="PS2_Data" />
         <signal name="Clk_50MHz" />
@@ -19,29 +18,9 @@
         <signal name="XLXN_11" />
         <signal name="XLXN_12(2:0)" />
         <signal name="XLXN_13(2:0)" />
-        <signal name="XLXN_14" />
-        <signal name="XLXN_15" />
         <signal name="XLXN_16(2:0)" />
         <signal name="XLXN_17(9:0)" />
         <signal name="XLXN_18(9:0)" />
-        <signal name="XLXN_19" />
-        <signal name="XLXN_20(2:0)" />
-        <signal name="XLXN_22(9:0)" />
-        <signal name="XLXN_23(9:0)" />
-        <signal name="XLXN_24(2:0)" />
-        <signal name="XLXN_26(9:0)" />
-        <signal name="XLXN_27(9:0)" />
-        <signal name="XLXN_28(2:0)" />
-        <signal name="XLXN_30(9:0)" />
-        <signal name="XLXN_31(9:0)" />
-        <signal name="XLXN_32(2:0)" />
-        <signal name="XLXN_33" />
-        <signal name="XLXN_34(2:0)" />
-        <signal name="XLXN_35(2:0)" />
-        <signal name="XLXN_36(2:0)" />
-        <signal name="XLXN_37(2:0)" />
-        <signal name="XLXN_38(2:0)" />
-        <signal name="XLXN_39(2:0)" />
         <signal name="VGA_R" />
         <signal name="VGA_G" />
         <signal name="VGA_B" />
@@ -87,7 +66,7 @@
             <line x2="0" y1="-32" y2="-32" x1="64" />
         </blockdef>
         <blockdef name="PS2_to_STER">
-            <timestamp>2017-3-14T22:58:54</timestamp>
+            <timestamp>2017-3-17T11:51:48</timestamp>
             <rect width="256" x="64" y="-384" height="384" />
             <line x2="0" y1="-352" y2="-352" x1="64" />
             <line x2="0" y1="-288" y2="-288" x1="64" />
@@ -104,7 +83,7 @@
             <line x2="384" y1="-32" y2="-32" x1="320" />
         </blockdef>
         <blockdef name="GAME">
-            <timestamp>2017-3-14T23:21:33</timestamp>
+            <timestamp>2017-3-17T13:24:44</timestamp>
             <rect width="256" x="64" y="-512" height="512" />
             <line x2="0" y1="-480" y2="-480" x1="64" />
             <line x2="0" y1="-416" y2="-416" x1="64" />

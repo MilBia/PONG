@@ -1,0 +1,4 @@
+vhdl work "VGA_640x480.vhd"
+vhdl work "PS2_to_STER.vhd"
+vhdl work "Picture.vhd"
+vhdl work "main.vhf"

@@ -1,0 +1,641 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Reading design: main.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "main.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "main"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : main
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "F:/PONG/VGA_640x480.vhd" in Library work.
+Architecture behavioral of Entity vga_640x480 is up to date.
+Compiling vhdl file "F:/PONG/PS2_to_STER.vhd" in Library work.
+Architecture behavioral of Entity ps2_to_ster is up to date.
+Compiling vhdl file "F:/PONG/Picture.vhd" in Library work.
+Entity <game> compiled.
+Entity <game> (Architecture <behavioral>) compiled.
+Compiling vhdl file "F:/PONG/main.vhf" in Library work.
+Entity <main> compiled.
+Entity <main> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <main> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <VGA_640x480> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <PS2_to_STER> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <GAME> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <main> in library <work> (Architecture <behavioral>).
+WARNING:Xst:2211 - "F:/PONG/main.vhf" line 114: Instantiating black box module <PS2_Kbd>.
+Entity <main> analyzed. Unit <main> generated.
+
+Analyzing Entity <VGA_640x480> in library <work> (Architecture <behavioral>).
+Entity <VGA_640x480> analyzed. Unit <VGA_640x480> generated.
+
+Analyzing Entity <PS2_to_STER> in library <work> (Architecture <behavioral>).
+Entity <PS2_to_STER> analyzed. Unit <PS2_to_STER> generated.
+
+Analyzing Entity <GAME> in library <work> (Architecture <behavioral>).
+INFO:Xst:2679 - Register <pkt1> in unit <GAME> has a constant value of 000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <pkt2> in unit <GAME> has a constant value of 000 during circuit operation. The register is replaced by logic.
+Entity <GAME> analyzed. Unit <GAME> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <VGA_640x480>.
+    Related source file is "F:/PONG/VGA_640x480.vhd".
+    Found 1-bit register for signal <HS>.
+    Found 1-bit register for signal <B>.
+    Found 1-bit register for signal <G>.
+    Found 1-bit register for signal <R>.
+    Found 10-bit register for signal <X>.
+    Found 10-bit register for signal <Y>.
+    Found 1-bit register for signal <VS>.
+    Found 10-bit comparator greatequal for signal <B$cmp_ge0000> created at line 116.
+    Found 10-bit comparator greatequal for signal <B$cmp_ge0001> created at line 116.
+    Found 10-bit comparator less for signal <B$cmp_lt0000> created at line 116.
+    Found 10-bit comparator less for signal <B$cmp_lt0001> created at line 116.
+    Found 1-bit register for signal <Clock>.
+    Found 10-bit up counter for signal <hor>.
+    Found 10-bit comparator less for signal <HS$cmp_lt0000> created at line 94.
+    Found 10-bit up counter for signal <ver>.
+    Found 10-bit comparator less for signal <ver$cmp_lt0000> created at line 76.
+    Found 10-bit comparator less for signal <ver$cmp_lt0001> created at line 72.
+    Found 10-bit comparator less for signal <VS$cmp_lt0000> created at line 100.
+    Found 10-bit subtractor for signal <X$addsub0000> created at line 117.
+    Found 10-bit subtractor for signal <Y$addsub0000> created at line 118.
+    Summary:
+	inferred   2 Counter(s).
+	inferred  26 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   8 Comparator(s).
+Unit <VGA_640x480> synthesized.
+
+
+Synthesizing Unit <PS2_to_STER>.
+    Related source file is "F:/PONG/PS2_to_STER.vhd".
+    Found 1-bit register for signal <ENTER>.
+    Found 3-bit register for signal <P1>.
+    Found 3-bit register for signal <P2>.
+    Found 1-bit register for signal <ESC>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <PS2_to_STER> synthesized.
+
+
+Synthesizing Unit <GAME>.
+    Related source file is "F:/PONG/Picture.vhd".
+WARNING:Xst:647 - Input <ENTER> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <ESC> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <pkt2> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <pkt1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 3-bit register for signal <RGB>.
+    Found 9-bit adder for signal <add0000$add0000> created at line 106.
+    Found 1-bit register for signal <Clock>.
+    Found 10-bit updown counter for signal <pal1>.
+    Found 10-bit adder carry out for signal <pal1$addsub0001> created at line 157.
+    Found 11-bit comparator greatequal for signal <pal1$cmp_ge0000> created at line 157.
+    Found 11-bit comparator greater for signal <pal1$cmp_gt0000> created at line 156.
+    Found 11-bit comparator lessequal for signal <pal1$cmp_le0000> created at line 156.
+    Found 11-bit subtractor for signal <pal1$sub0000> created at line 156.
+    Found 10-bit updown counter for signal <pal2>.
+    Found 10-bit adder carry out for signal <pal2$addsub0001> created at line 164.
+    Found 11-bit comparator greatequal for signal <pal2$cmp_ge0000> created at line 164.
+    Found 11-bit comparator greater for signal <pal2$cmp_gt0000> created at line 163.
+    Found 11-bit comparator lessequal for signal <pal2$cmp_le0000> created at line 163.
+    Found 11-bit subtractor for signal <pal2$sub0000> created at line 163.
+    Found 10-bit adder for signal <RGB$add0000> created at line 106.
+    Found 10-bit adder carry out for signal <RGB$addsub0002> created at line 107.
+    Found 10-bit adder carry out for signal <RGB$addsub0003> created at line 109.
+    Found 10-bit comparator greater for signal <RGB$cmp_gt0000> created at line 106.
+    Found 10-bit comparator greater for signal <RGB$cmp_gt0001> created at line 106.
+    Found 10-bit comparator greater for signal <RGB$cmp_gt0002> created at line 107.
+    Found 10-bit comparator greater for signal <RGB$cmp_gt0003> created at line 107.
+    Found 10-bit comparator greater for signal <RGB$cmp_gt0004> created at line 109.
+    Found 10-bit comparator greater for signal <RGB$cmp_gt0005> created at line 109.
+    Found 10-bit comparator less for signal <RGB$cmp_lt0000> created at line 106.
+    Found 10-bit comparator less for signal <RGB$cmp_lt0001> created at line 106.
+    Found 10-bit comparator less for signal <RGB$cmp_lt0002> created at line 107.
+    Found 11-bit comparator less for signal <RGB$cmp_lt0003> created at line 107.
+    Found 10-bit comparator less for signal <RGB$cmp_lt0004> created at line 109.
+    Found 11-bit comparator less for signal <RGB$cmp_lt0005> created at line 109.
+    Found 9-bit up counter for signal <temp>.
+    Found 1-bit register for signal <Vx>.
+    Found 1-bit register for signal <Vy>.
+    Found 10-bit updown counter for signal <Xkw>.
+    Found 9-bit updown counter for signal <Ykw>.
+    Summary:
+	inferred   5 Counter(s).
+	inferred   6 D-type flip-flop(s).
+	inferred   8 Adder/Subtractor(s).
+	inferred  18 Comparator(s).
+Unit <GAME> synthesized.
+
+
+Synthesizing Unit <main>.
+    Related source file is "F:/PONG/main.vhf".
+Unit <main> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 10
+ 10-bit adder                                          : 1
+ 10-bit adder carry out                                : 4
+ 10-bit subtractor                                     : 2
+ 11-bit subtractor                                     : 2
+ 9-bit adder                                           : 1
+# Counters                                             : 7
+ 10-bit up counter                                     : 2
+ 10-bit updown counter                                 : 3
+ 9-bit up counter                                      : 1
+ 9-bit updown counter                                  : 1
+# Registers                                            : 16
+ 1-bit register                                        : 11
+ 10-bit register                                       : 2
+ 3-bit register                                        : 3
+# Comparators                                          : 26
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator greater                             : 6
+ 10-bit comparator less                                : 10
+ 11-bit comparator greatequal                          : 2
+ 11-bit comparator greater                             : 2
+ 11-bit comparator less                                : 2
+ 11-bit comparator lessequal                           : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <PS2_Kbd.ngc>.
+Loading core <PS2_Kbd> for timing and area information for instance <XLXI_2>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 10
+ 10-bit adder                                          : 1
+ 10-bit adder carry out                                : 4
+ 10-bit subtractor                                     : 2
+ 11-bit subtractor                                     : 2
+ 9-bit adder                                           : 1
+# Counters                                             : 7
+ 10-bit up counter                                     : 2
+ 10-bit updown counter                                 : 3
+ 9-bit up counter                                      : 1
+ 9-bit updown counter                                  : 1
+# Registers                                            : 40
+ Flip-Flops                                            : 40
+# Comparators                                          : 26
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator greater                             : 6
+ 10-bit comparator less                                : 10
+ 11-bit comparator greatequal                          : 2
+ 11-bit comparator greater                             : 2
+ 11-bit comparator less                                : 2
+ 11-bit comparator lessequal                           : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <main> ...
+
+Optimizing unit <VGA_640x480> ...
+
+Optimizing unit <PS2_to_STER> ...
+
+Optimizing unit <GAME> ...
+WARNING:Xst:2677 - Node <XLXI_3/ESC> of sequential type is unconnected in block <main>.
+WARNING:Xst:2677 - Node <XLXI_3/ENTER> of sequential type is unconnected in block <main>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block main, actual ratio is 5.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 106
+ Flip-Flops                                            : 106
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : main.ngr
+Top Level Output File Name         : main
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 9
+
+Cell Usage :
+# BELS                             : 777
+#      GND                         : 2
+#      INV                         : 49
+#      LUT1                        : 43
+#      LUT2                        : 132
+#      LUT3                        : 49
+#      LUT3_D                      : 5
+#      LUT3_L                      : 3
+#      LUT4                        : 105
+#      LUT4_D                      : 6
+#      LUT4_L                      : 12
+#      MUXCY                       : 225
+#      MUXF5                       : 7
+#      VCC                         : 2
+#      XORCY                       : 137
+# FlipFlops/Latches                : 143
+#      FD                          : 11
+#      FDC                         : 18
+#      FDCE                        : 41
+#      FDE                         : 36
+#      FDP                         : 2
+#      FDPE                        : 25
+#      FDR                         : 1
+#      FDRE                        : 9
+# Clock Buffers                    : 3
+#      BUFG                        : 2
+#      BUFGP                       : 1
+# IO Buffers                       : 8
+#      IBUF                        : 3
+#      OBUF                        : 5
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                      217  out of   4656     4%  
+ Number of Slice Flip Flops:            143  out of   9312     1%  
+ Number of 4 input LUTs:                404  out of   9312     4%  
+ Number of IOs:                           9
+ Number of bonded IOBs:                   9  out of    232     3%  
+ Number of GCLKs:                         3  out of     24    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+Clk_50MHz                          | BUFGP                  | 45    |
+XLXI_1/Clock1                      | BUFG                   | 45    |
+XLXI_4/Clock1                      | BUFG                   | 53    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+btn_south                          | IBUF                   | 86    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 10.952ns (Maximum Frequency: 91.308MHz)
+   Minimum input arrival time before clock: 4.859ns
+   Maximum output required time after clock: 4.283ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk_50MHz'
+  Clock period: 6.303ns (frequency: 158.655MHz)
+  Total number of paths / destination ports: 445 / 84
+-------------------------------------------------------------------------
+Delay:               6.303ns (Levels of Logic = 5)
+  Source:            XLXI_2/reg11b_8 (FF)
+  Destination:       XLXI_3/P2_1 (FF)
+  Source Clock:      Clk_50MHz rising
+  Destination Clock: Clk_50MHz rising
+
+  Data Path: XLXI_2/reg11b_8 to XLXI_3/P2_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              8   0.591   0.932  reg11b_8 (DO<7>)
+     end scope: 'XLXI_2'
+     LUT2:I0->O            2   0.704   0.451  XLXI_3/P2_and00001 (XLXI_3/P2_and0000)
+     LUT4:I3->O            3   0.704   0.706  XLXI_3/P2_mux0000<1>125 (XLXI_3/P2_mux0000<1>125)
+     LUT2:I0->O            1   0.704   0.499  XLXI_3/P2_mux0000<1>145 (XLXI_3/N11)
+     LUT4:I1->O            1   0.704   0.000  XLXI_3/P2_mux0000<1>47 (XLXI_3/P2_mux0000<1>)
+     FDPE:D                    0.308          XLXI_3/P2_1
+    ----------------------------------------
+    Total                      6.303ns (3.715ns logic, 2.588ns route)
+                                       (58.9% logic, 41.1% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'XLXI_1/Clock1'
+  Clock period: 8.002ns (frequency: 124.969MHz)
+  Total number of paths / destination ports: 2071 / 55
+-------------------------------------------------------------------------
+Delay:               8.002ns (Levels of Logic = 14)
+  Source:            XLXI_1/hor_1 (FF)
+  Destination:       XLXI_1/hor_9 (FF)
+  Source Clock:      XLXI_1/Clock1 rising
+  Destination Clock: XLXI_1/Clock1 rising
+
+  Data Path: XLXI_1/hor_1 to XLXI_1/hor_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              4   0.591   0.762  XLXI_1/hor_1 (XLXI_1/hor_1)
+     LUT4:I0->O            1   0.704   0.455  XLXI_1/ver_not000321_SW0_SW0 (N79)
+     LUT4_D:I2->LO         1   0.704   0.104  XLXI_1/ver_not000321_SW0 (N94)
+     LUT4:I3->O           17   0.704   1.226  XLXI_1/ver_not000321 (XLXI_1/ver_not0003)
+     LUT3:I0->O            1   0.704   0.000  XLXI_1/Mcount_hor_lut<0> (XLXI_1/Mcount_hor_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  XLXI_1/Mcount_hor_cy<0> (XLXI_1/Mcount_hor_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_1/Mcount_hor_cy<1> (XLXI_1/Mcount_hor_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_1/Mcount_hor_cy<2> (XLXI_1/Mcount_hor_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_1/Mcount_hor_cy<3> (XLXI_1/Mcount_hor_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_1/Mcount_hor_cy<4> (XLXI_1/Mcount_hor_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_1/Mcount_hor_cy<5> (XLXI_1/Mcount_hor_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_1/Mcount_hor_cy<6> (XLXI_1/Mcount_hor_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_1/Mcount_hor_cy<7> (XLXI_1/Mcount_hor_cy<7>)
+     MUXCY:CI->O           0   0.059   0.000  XLXI_1/Mcount_hor_cy<8> (XLXI_1/Mcount_hor_cy<8>)
+     XORCY:CI->O           1   0.804   0.000  XLXI_1/Mcount_hor_xor<9> (XLXI_1/Mcount_hor9)
+     FDC:D                     0.308          XLXI_1/hor_9
+    ----------------------------------------
+    Total                      8.002ns (5.455ns logic, 2.547ns route)
+                                       (68.2% logic, 31.8% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'XLXI_4/Clock1'
+  Clock period: 10.952ns (frequency: 91.308MHz)
+  Total number of paths / destination ports: 15340 / 94
+-------------------------------------------------------------------------
+Delay:               10.952ns (Levels of Logic = 25)
+  Source:            XLXI_4/pal2_0 (FF)
+  Destination:       XLXI_4/pal2_9 (FF)
+  Source Clock:      XLXI_4/Clock1 rising
+  Destination Clock: XLXI_4/Clock1 rising
+
+  Data Path: XLXI_4/pal2_0 to XLXI_4/pal2_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             5   0.591   0.808  XLXI_4/pal2_0 (XLXI_4/pal2_0)
+     LUT1:I0->O            1   0.704   0.000  XLXI_4/Msub_pal2_sub0000_cy<0>_rt (XLXI_4/Msub_pal2_sub0000_cy<0>_rt)
+     MUXCY:S->O            1   0.464   0.000  XLXI_4/Msub_pal2_sub0000_cy<0> (XLXI_4/Msub_pal2_sub0000_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Msub_pal2_sub0000_cy<1> (XLXI_4/Msub_pal2_sub0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Msub_pal2_sub0000_cy<2> (XLXI_4/Msub_pal2_sub0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Msub_pal2_sub0000_cy<3> (XLXI_4/Msub_pal2_sub0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Msub_pal2_sub0000_cy<4> (XLXI_4/Msub_pal2_sub0000_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Msub_pal2_sub0000_cy<5> (XLXI_4/Msub_pal2_sub0000_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Msub_pal2_sub0000_cy<6> (XLXI_4/Msub_pal2_sub0000_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Msub_pal2_sub0000_cy<7> (XLXI_4/Msub_pal2_sub0000_cy<7>)
+     XORCY:CI->O           1   0.804   0.595  XLXI_4/Msub_pal2_sub0000_xor<8> (XLXI_4/pal2_sub0000<8>)
+     LUT2:I0->O            1   0.704   0.000  XLXI_4/Mcompar_pal2_cmp_le0000_lut<2> (XLXI_4/Mcompar_pal2_cmp_le0000_lut<2>)
+     MUXCY:S->O            1   0.464   0.000  XLXI_4/Mcompar_pal2_cmp_le0000_cy<2> (XLXI_4/Mcompar_pal2_cmp_le0000_cy<2>)
+     MUXCY:CI->O           9   0.459   0.824  XLXI_4/Mcompar_pal2_cmp_le0000_cy<3> (XLXI_4/pal2_cmp_le0000)
+     LUT4:I3->O            4   0.704   0.666  XLXI_4/pal2_not0003_inv2 (XLXI_4/pal2_not0003_inv)
+     LUT2:I1->O            1   0.704   0.000  XLXI_4/Mcount_pal2_lut<0> (XLXI_4/Mcount_pal2_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  XLXI_4/Mcount_pal2_cy<0> (XLXI_4/Mcount_pal2_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Mcount_pal2_cy<1> (XLXI_4/Mcount_pal2_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Mcount_pal2_cy<2> (XLXI_4/Mcount_pal2_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Mcount_pal2_cy<3> (XLXI_4/Mcount_pal2_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Mcount_pal2_cy<4> (XLXI_4/Mcount_pal2_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Mcount_pal2_cy<5> (XLXI_4/Mcount_pal2_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Mcount_pal2_cy<6> (XLXI_4/Mcount_pal2_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  XLXI_4/Mcount_pal2_cy<7> (XLXI_4/Mcount_pal2_cy<7>)
+     MUXCY:CI->O           0   0.059   0.000  XLXI_4/Mcount_pal2_cy<8> (XLXI_4/Mcount_pal2_cy<8>)
+     XORCY:CI->O           1   0.804   0.000  XLXI_4/Mcount_pal2_xor<9> (XLXI_4/Result<9>1)
+     FDCE:D                    0.308          XLXI_4/pal2_9
+    ----------------------------------------
+    Total                     10.952ns (8.059ns logic, 2.893ns route)
+                                       (73.6% logic, 26.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk_50MHz'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              3.980ns (Levels of Logic = 4)
+  Source:            PS2_Data (PAD)
+  Destination:       XLXI_2/ByteRdy (FF)
+  Destination Clock: Clk_50MHz rising
+
+  Data Path: PS2_Data to XLXI_2/ByteRdy
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.218   0.622  PS2_Data_IBUF (PS2_Data_IBUF)
+     begin scope: 'XLXI_2'
+     LUT2:I0->O            1   0.704   0.424  ByteRdy_and0000_SW0_SW0 (N6)
+     LUT4:I3->O            1   0.704   0.000  ByteRdy_and0000 (ByteRdy_and0000)
+     FDR:D                     0.308          ByteRdy
+    ----------------------------------------
+    Total                      3.980ns (2.934ns logic, 1.046ns route)
+                                       (73.7% logic, 26.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'XLXI_1/Clock1'
+  Total number of paths / destination ports: 20 / 20
+-------------------------------------------------------------------------
+Offset:              4.859ns (Levels of Logic = 2)
+  Source:            btn_south (PAD)
+  Destination:       XLXI_1/Y_9 (FF)
+  Destination Clock: XLXI_1/Clock1 rising
+
+  Data Path: btn_south to XLXI_1/Y_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            87   1.218   1.280  btn_south_IBUF (btn_south_IBUF)
+     INV:I->O             20   0.704   1.102  XLXI_1/CLR_inv1_INV_0 (XLXI_1/CLR_inv)
+     FDE:CE                    0.555          XLXI_1/X_0
+    ----------------------------------------
+    Total                      4.859ns (2.477ns logic, 2.382ns route)
+                                       (51.0% logic, 49.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'XLXI_1/Clock1'
+  Total number of paths / destination ports: 5 / 5
+-------------------------------------------------------------------------
+Offset:              4.283ns (Levels of Logic = 1)
+  Source:            XLXI_1/HS (FF)
+  Destination:       VGA_HS (PAD)
+  Source Clock:      XLXI_1/Clock1 rising
+
+  Data Path: XLXI_1/HS to VGA_HS
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDP:C->Q              1   0.591   0.420  XLXI_1/HS (XLXI_1/HS)
+     OBUF:I->O                 3.272          VGA_HS_OBUF (VGA_HS)
+    ----------------------------------------
+    Total                      4.283ns (3.863ns logic, 0.420ns route)
+                                       (90.2% logic, 9.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 8.30 secs
+ 
+--> 
+
+Total memory usage is 211500 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    7 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+

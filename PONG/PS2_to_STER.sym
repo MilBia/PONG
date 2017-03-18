@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="PS2_to_STER">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2017-3-14T22:58:54</timestamp>
+    <timestamp>2017-3-17T11:51:48</timestamp>
     <pin polarity="Input" x="0" y="-352" name="E0" />
     <pin polarity="Input" x="0" y="-288" name="F0" />
     <pin polarity="Input" x="0" y="-224" name="RS2_Rdy" />

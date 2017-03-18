@@ -1,0 +1,8 @@
+AR vga_640x480 behavioral F:/PONG/VGA_640x480.vhd sub00/vhpl01 1489757102
+AR game behavioral F:/PONG/Picture.vhd sub00/vhpl05 1489757106
+AR main behavioral F:/PONG/main.vhf sub00/vhpl07 1489757108
+EN vga_640x480 NULL F:/PONG/VGA_640x480.vhd sub00/vhpl00 1489757101
+EN main NULL F:/PONG/main.vhf sub00/vhpl06 1489757107
+EN game NULL F:/PONG/Picture.vhd sub00/vhpl04 1489757105
+AR ps2_to_ster behavioral F:/PONG/PS2_to_STER.vhd sub00/vhpl03 1489757104
+EN ps2_to_ster NULL F:/PONG/PS2_to_STER.vhd sub00/vhpl02 1489757103

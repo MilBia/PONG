@@ -43,8 +43,8 @@ entity PS2_to_STER is
 end PS2_to_STER;
 
 architecture Behavioral of PS2_to_STER is
-signal P1_D : STD_LOGIC_VECTOR (2 downto 0);
-signal P2_D : STD_LOGIC_VECTOR (2 downto 0);
+--signal P1_D : STD_LOGIC_VECTOR (2 downto 0);
+--signal P2_D : STD_LOGIC_VECTOR (2 downto 0);
 
 begin
 
@@ -55,19 +55,19 @@ begin
 		ESC <='0';
 		P1 <="111";
 		P2 <="111";
-		P1_D <="111";
-		P2_D <="111";
+		--P1_D <="111";
+		--P2_D <="111";
 	elsif rising_edge( Clk ) then -- dalsza czêœæ bêdzie odbywaæ siê synchronicznie
 			if RS2_Rdy = '1' then -- jeœli przyszed³ sygna³ odbiory danych przystêpujemy do obs³ugi
 				if E0 = '1' then	  --player1
 					if F0 = '0' then --wciœniêty
-						if D_in = "01101001" then
+						if D_in = "01110101" then
 							P1 <= "000";
 						elsif D_in = "01110010" then
 							P1 <= "001";
 						elsif D_in = "01101011" then
 							P1 <= "011";
-						elsif D_in = "01000111" then
+						elsif D_in = "01110100" then
 							P1 <= "010";
 						end if;
 					else
