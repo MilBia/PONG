@@ -100,3 +100,27 @@ vhdtdtfi -lib work Picture.vhd -prj PONG -o GAME.spl -module GAME -template C:/X
 spl2sym -intstyle ise -family spartan3e GAME.spl F:/PONG/GAME.sym 
 vhdtdtfi -lib work Picture.vhd -prj PONG -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
 spl2sym -intstyle ise -family spartan3e GAME.spl F:/PONG/GAME.sym 
+vhdtdtfi -lib work Picture.vhd -prj PONG -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl D:/NAUKA/Xilinx/PONG/GAME.sym 
+vhdtdtfi -lib work Picture.vhd -prj PONG -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl D:/NAUKA/Xilinx/PONG/GAME.sym 
+vhdtdtfi -lib work Picture.vhd -prj PONG -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl D:/NAUKA/Xilinx/PONG/GAME.sym 
+vhdtdtfi -lib work Picture.vhd -prj PONG -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl F:/PONG/GAME.sym 
+vhdtdtfi -lib work Picture.vhd -prj PONG -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl F:/PONG/GAME.sym 
+vhdtdtfi -lib work Picture.vhd -prj PONG -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl F:/PONG/GAME.sym 
+vhdtdtfi -lib work Picture.vhd -prj PONG -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl F:/PONG/GAME.sym 
+vhdtdtfi -lib work Picture.vhd -prj PONG -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl F:/PONG/GAME.sym 
+vhdtdtfi -lib work Picture.vhd -prj PONG -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl F:/PONG/GAME.sym 
+vhdtdtfi -lib work Picture.vhd -prj PONG -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl F:/PONG/GAME.sym 
+vhdtdtfi -lib work Picture.vhd -prj PONG -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl F:/PONG/GAME.sym 
+vhdtdtfi -lib work Picture.vhd -prj PONG -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl F:/PONG/GAME.sym 

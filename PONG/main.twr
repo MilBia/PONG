@@ -36,19 +36,226 @@ INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and
 Timing constraint: NET "Clk_50MHz_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
 For more information, see Period Analysis in the Timing Closure User Guide (UG612).
 
- 445 paths analyzed, 130 endpoints analyzed, 0 failing endpoints
+ 456 paths analyzed, 132 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   7.515ns.
+ Minimum period is   6.026ns.
 --------------------------------------------------------------------------------
 
-Paths for end point XLXI_2/cntMod11_3 (SLICE_X46Y72.SR), 19 paths
+Paths for end point XLXI_3/P2_0 (SLICE_X49Y40.F3), 9 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     12.485ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     13.974ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               XLXI_2/reg11b_7 (FF)
+  Destination:          XLXI_3/P2_0 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.026ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clk_50MHz_BUFGP rising at 0.000ns
+  Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: XLXI_2/reg11b_7 to XLXI_3/P2_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y52.YQ      Tcko                  0.587   XLXN_1<7>
+                                                       XLXI_2/reg11b_7
+    SLICE_X48Y42.G2      net (fanout=9)        1.514   XLXN_1<6>
+    SLICE_X48Y42.Y       Tilo                  0.759   XLXI_3/P2_mux0000<1>125
+                                                       XLXI_3/P2_and00001
+    SLICE_X48Y43.G2      net (fanout=2)        0.500   XLXI_3/P2_and0000
+    SLICE_X48Y43.Y       Tilo                  0.759   N111
+                                                       XLXI_3/P2_mux0000<2>27
+    SLICE_X49Y40.G3      net (fanout=1)        0.343   XLXI_3/P2_mux0000<2>27
+    SLICE_X49Y40.Y       Tilo                  0.704   XLXI_3/P2<0>
+                                                       XLXI_3/P2_mux0000<2>41
+    SLICE_X49Y40.F3      net (fanout=1)        0.023   XLXI_3/P2_mux0000<2>41
+    SLICE_X49Y40.CLK     Tfck                  0.837   XLXI_3/P2<0>
+                                                       XLXI_3/P2_mux0000<2>55
+                                                       XLXI_3/P2_0
+    -------------------------------------------------  ---------------------------
+    Total                                      6.026ns (3.646ns logic, 2.380ns route)
+                                                       (60.5% logic, 39.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     14.378ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               XLXI_2/reg11b_8 (FF)
+  Destination:          XLXI_3/P2_0 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.622ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clk_50MHz_BUFGP rising at 0.000ns
+  Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: XLXI_2/reg11b_8 to XLXI_3/P2_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y52.XQ      Tcko                  0.591   XLXN_1<7>
+                                                       XLXI_2/reg11b_8
+    SLICE_X48Y42.G1      net (fanout=9)        1.106   XLXN_1<7>
+    SLICE_X48Y42.Y       Tilo                  0.759   XLXI_3/P2_mux0000<1>125
+                                                       XLXI_3/P2_and00001
+    SLICE_X48Y43.G2      net (fanout=2)        0.500   XLXI_3/P2_and0000
+    SLICE_X48Y43.Y       Tilo                  0.759   N111
+                                                       XLXI_3/P2_mux0000<2>27
+    SLICE_X49Y40.G3      net (fanout=1)        0.343   XLXI_3/P2_mux0000<2>27
+    SLICE_X49Y40.Y       Tilo                  0.704   XLXI_3/P2<0>
+                                                       XLXI_3/P2_mux0000<2>41
+    SLICE_X49Y40.F3      net (fanout=1)        0.023   XLXI_3/P2_mux0000<2>41
+    SLICE_X49Y40.CLK     Tfck                  0.837   XLXI_3/P2<0>
+                                                       XLXI_3/P2_mux0000<2>55
+                                                       XLXI_3/P2_0
+    -------------------------------------------------  ---------------------------
+    Total                                      5.622ns (3.650ns logic, 1.972ns route)
+                                                       (64.9% logic, 35.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     14.607ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               XLXI_2/reg11b_2 (FF)
+  Destination:          XLXI_3/P2_0 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.391ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.002ns (0.089 - 0.091)
+  Source Clock:         Clk_50MHz_BUFGP rising at 0.000ns
+  Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: XLXI_2/reg11b_2 to XLXI_3/P2_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y48.XQ      Tcko                  0.592   XLXN_1<1>
+                                                       XLXI_2/reg11b_2
+    SLICE_X50Y40.G1      net (fanout=12)       2.128   XLXN_1<1>
+    SLICE_X50Y40.Y       Tilo                  0.759   N7
+                                                       XLXI_3/P2_mux0000<2>18
+    SLICE_X49Y40.G4      net (fanout=1)        0.348   XLXI_3/P2_mux0000<2>18
+    SLICE_X49Y40.Y       Tilo                  0.704   XLXI_3/P2<0>
+                                                       XLXI_3/P2_mux0000<2>41
+    SLICE_X49Y40.F3      net (fanout=1)        0.023   XLXI_3/P2_mux0000<2>41
+    SLICE_X49Y40.CLK     Tfck                  0.837   XLXI_3/P2<0>
+                                                       XLXI_3/P2_mux0000<2>55
+                                                       XLXI_3/P2_0
+    -------------------------------------------------  ---------------------------
+    Total                                      5.391ns (2.892ns logic, 2.499ns route)
+                                                       (53.6% logic, 46.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point XLXI_3/P1_0 (SLICE_X49Y41.G1), 14 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     13.979ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               XLXI_2/reg11b_8 (FF)
+  Destination:          XLXI_3/P1_0 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.021ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clk_50MHz_BUFGP rising at 0.000ns
+  Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: XLXI_2/reg11b_8 to XLXI_3/P1_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y52.XQ      Tcko                  0.591   XLXN_1<7>
+                                                       XLXI_2/reg11b_8
+    SLICE_X51Y40.G2      net (fanout=9)        1.607   XLXN_1<7>
+    SLICE_X51Y40.Y       Tilo                  0.704   N6
+                                                       XLXI_3/P1_and00001
+    SLICE_X50Y40.F2      net (fanout=2)        0.093   XLXI_3/P1_and0000
+    SLICE_X50Y40.X       Tilo                  0.759   N7
+                                                       XLXI_3/P1_mux0000<1>1_SW1
+    SLICE_X48Y40.G2      net (fanout=1)        0.434   N7
+    SLICE_X48Y40.Y       Tilo                  0.759   XLXI_3/P1<2>
+                                                       XLXI_3/P1_mux0000<1>1
+    SLICE_X49Y41.G1      net (fanout=3)        0.237   XLXI_3/N01
+    SLICE_X49Y41.CLK     Tgck                  0.837   XLXI_3/P1<0>
+                                                       XLXI_3/P1_mux0000<2>40
+                                                       XLXI_3/P1_0
+    -------------------------------------------------  ---------------------------
+    Total                                      6.021ns (3.650ns logic, 2.371ns route)
+                                                       (60.6% logic, 39.4% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     14.107ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               XLXI_2/reg11b_8 (FF)
+  Destination:          XLXI_3/P1_0 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.893ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clk_50MHz_BUFGP rising at 0.000ns
+  Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: XLXI_2/reg11b_8 to XLXI_3/P1_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y52.XQ      Tcko                  0.591   XLXN_1<7>
+                                                       XLXI_2/reg11b_8
+    SLICE_X51Y40.G2      net (fanout=9)        1.607   XLXN_1<7>
+    SLICE_X51Y40.Y       Tilo                  0.704   N6
+                                                       XLXI_3/P1_and00001
+    SLICE_X51Y40.F3      net (fanout=2)        0.044   XLXI_3/P1_and0000
+    SLICE_X51Y40.X       Tilo                  0.704   N6
+                                                       XLXI_3/P1_mux0000<1>1_SW0
+    SLICE_X48Y40.G4      net (fanout=1)        0.410   N6
+    SLICE_X48Y40.Y       Tilo                  0.759   XLXI_3/P1<2>
+                                                       XLXI_3/P1_mux0000<1>1
+    SLICE_X49Y41.G1      net (fanout=3)        0.237   XLXI_3/N01
+    SLICE_X49Y41.CLK     Tgck                  0.837   XLXI_3/P1<0>
+                                                       XLXI_3/P1_mux0000<2>40
+                                                       XLXI_3/P1_0
+    -------------------------------------------------  ---------------------------
+    Total                                      5.893ns (3.595ns logic, 2.298ns route)
+                                                       (61.0% logic, 39.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     14.154ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               XLXI_2/reg11b_7 (FF)
+  Destination:          XLXI_3/P1_0 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.846ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clk_50MHz_BUFGP rising at 0.000ns
+  Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: XLXI_2/reg11b_7 to XLXI_3/P1_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y52.YQ      Tcko                  0.587   XLXN_1<7>
+                                                       XLXI_2/reg11b_7
+    SLICE_X51Y40.G4      net (fanout=9)        1.436   XLXN_1<6>
+    SLICE_X51Y40.Y       Tilo                  0.704   N6
+                                                       XLXI_3/P1_and00001
+    SLICE_X50Y40.F2      net (fanout=2)        0.093   XLXI_3/P1_and0000
+    SLICE_X50Y40.X       Tilo                  0.759   N7
+                                                       XLXI_3/P1_mux0000<1>1_SW1
+    SLICE_X48Y40.G2      net (fanout=1)        0.434   N7
+    SLICE_X48Y40.Y       Tilo                  0.759   XLXI_3/P1<2>
+                                                       XLXI_3/P1_mux0000<1>1
+    SLICE_X49Y41.G1      net (fanout=3)        0.237   XLXI_3/N01
+    SLICE_X49Y41.CLK     Tgck                  0.837   XLXI_3/P1<0>
+                                                       XLXI_3/P1_mux0000<2>40
+                                                       XLXI_3/P1_0
+    -------------------------------------------------  ---------------------------
+    Total                                      5.846ns (3.646ns logic, 2.200ns route)
+                                                       (62.4% logic, 37.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point XLXI_2/cntMod11_3 (SLICE_X50Y70.SR), 19 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     14.087ns (requirement - (data path - clock path skew + uncertainty))
   Source:               XLXI_2/cnt8b_5 (FF)
   Destination:          XLXI_2/cntMod11_3 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      7.494ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.021ns (0.016 - 0.037)
+  Data Path Delay:      5.913ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
   Source Clock:         Clk_50MHz_BUFGP rising at 0.000ns
   Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.000ns
@@ -57,300 +264,96 @@ Slack (setup path):     12.485ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X43Y84.YQ      Tcko                  0.587   XLXI_2/cnt8b<4>
+    SLICE_X47Y77.YQ      Tcko                  0.587   XLXI_2/cnt8b<4>
                                                        XLXI_2/cnt8b_5
-    SLICE_X42Y84.F1      net (fanout=2)        1.549   XLXI_2/cnt8b<5>
-    SLICE_X42Y84.X       Tilo                  0.759   XLXI_2/PS_Samp_cmp_eq00009
+    SLICE_X46Y77.F1      net (fanout=2)        0.521   XLXI_2/cnt8b<5>
+    SLICE_X46Y77.X       Tilo                  0.759   XLXI_2/PS_Samp_cmp_eq00009
                                                        XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.F2      net (fanout=1)        0.361   XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.X       Tilo                  0.759   XLXI_2/PS_Samp
+    SLICE_X46Y74.F2      net (fanout=1)        0.361   XLXI_2/PS_Samp_cmp_eq00009
+    SLICE_X46Y74.X       Tilo                  0.759   XLXI_2/PS_Samp
                                                        XLXI_2/PS_Samp_cmp_eq000010
-    SLICE_X44Y74.F1      net (fanout=5)        0.961   XLXI_2/PS_Samp
-    SLICE_X44Y74.X       Tilo                  0.759   XLXI_2/cntMod11_or0000
+    SLICE_X48Y72.F3      net (fanout=5)        0.408   XLXI_2/PS_Samp
+    SLICE_X48Y72.X       Tilo                  0.759   XLXI_2/cntMod11_or0000
                                                        XLXI_2/cntMod11_or000016
-    SLICE_X46Y72.SR      net (fanout=2)        0.849   XLXI_2/cntMod11_or0000
-    SLICE_X46Y72.CLK     Tsrck                 0.910   XLXI_2/cntMod11<3>
+    SLICE_X50Y70.SR      net (fanout=2)        0.849   XLXI_2/cntMod11_or0000
+    SLICE_X50Y70.CLK     Tsrck                 0.910   XLXI_2/cntMod11<3>
                                                        XLXI_2/cntMod11_3
     -------------------------------------------------  ---------------------------
-    Total                                      7.494ns (3.774ns logic, 3.720ns route)
-                                                       (50.4% logic, 49.6% route)
+    Total                                      5.913ns (3.774ns logic, 2.139ns route)
+                                                       (63.8% logic, 36.2% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     13.262ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               XLXI_2/cnt8b_6 (FF)
+Slack (setup path):     14.106ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               XLXI_2/cnt8b_4 (FF)
   Destination:          XLXI_2/cntMod11_3 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      6.717ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.021ns (0.016 - 0.037)
+  Data Path Delay:      5.894ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
   Source Clock:         Clk_50MHz_BUFGP rising at 0.000ns
   Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Maximum Data Path: XLXI_2/cnt8b_6 to XLXI_2/cntMod11_3
+  Maximum Data Path: XLXI_2/cnt8b_4 to XLXI_2/cntMod11_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X43Y85.XQ      Tcko                  0.591   XLXI_2/cnt8b<6>
-                                                       XLXI_2/cnt8b_6
-    SLICE_X42Y84.F2      net (fanout=2)        0.768   XLXI_2/cnt8b<6>
-    SLICE_X42Y84.X       Tilo                  0.759   XLXI_2/PS_Samp_cmp_eq00009
+    SLICE_X47Y77.XQ      Tcko                  0.591   XLXI_2/cnt8b<4>
+                                                       XLXI_2/cnt8b_4
+    SLICE_X46Y77.F2      net (fanout=2)        0.498   XLXI_2/cnt8b<4>
+    SLICE_X46Y77.X       Tilo                  0.759   XLXI_2/PS_Samp_cmp_eq00009
                                                        XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.F2      net (fanout=1)        0.361   XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.X       Tilo                  0.759   XLXI_2/PS_Samp
+    SLICE_X46Y74.F2      net (fanout=1)        0.361   XLXI_2/PS_Samp_cmp_eq00009
+    SLICE_X46Y74.X       Tilo                  0.759   XLXI_2/PS_Samp
                                                        XLXI_2/PS_Samp_cmp_eq000010
-    SLICE_X44Y74.F1      net (fanout=5)        0.961   XLXI_2/PS_Samp
-    SLICE_X44Y74.X       Tilo                  0.759   XLXI_2/cntMod11_or0000
+    SLICE_X48Y72.F3      net (fanout=5)        0.408   XLXI_2/PS_Samp
+    SLICE_X48Y72.X       Tilo                  0.759   XLXI_2/cntMod11_or0000
                                                        XLXI_2/cntMod11_or000016
-    SLICE_X46Y72.SR      net (fanout=2)        0.849   XLXI_2/cntMod11_or0000
-    SLICE_X46Y72.CLK     Tsrck                 0.910   XLXI_2/cntMod11<3>
+    SLICE_X50Y70.SR      net (fanout=2)        0.849   XLXI_2/cntMod11_or0000
+    SLICE_X50Y70.CLK     Tsrck                 0.910   XLXI_2/cntMod11<3>
                                                        XLXI_2/cntMod11_3
     -------------------------------------------------  ---------------------------
-    Total                                      6.717ns (3.778ns logic, 2.939ns route)
-                                                       (56.2% logic, 43.8% route)
+    Total                                      5.894ns (3.778ns logic, 2.116ns route)
+                                                       (64.1% logic, 35.9% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     13.320ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               XLXI_2/cnt8b_7 (FF)
+Slack (setup path):     14.136ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               XLXI_2/cnt8b_3 (FF)
   Destination:          XLXI_2/cntMod11_3 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      6.659ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.021ns (0.016 - 0.037)
+  Data Path Delay:      5.864ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
   Source Clock:         Clk_50MHz_BUFGP rising at 0.000ns
   Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Maximum Data Path: XLXI_2/cnt8b_7 to XLXI_2/cntMod11_3
+  Maximum Data Path: XLXI_2/cnt8b_3 to XLXI_2/cntMod11_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X43Y85.YQ      Tcko                  0.587   XLXI_2/cnt8b<6>
-                                                       XLXI_2/cnt8b_7
-    SLICE_X42Y84.F3      net (fanout=2)        0.714   XLXI_2/cnt8b<7>
-    SLICE_X42Y84.X       Tilo                  0.759   XLXI_2/PS_Samp_cmp_eq00009
-                                                       XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.F2      net (fanout=1)        0.361   XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.X       Tilo                  0.759   XLXI_2/PS_Samp
+    SLICE_X47Y76.YQ      Tcko                  0.587   XLXI_2/cnt8b<2>
+                                                       XLXI_2/cnt8b_3
+    SLICE_X46Y74.G1      net (fanout=2)        0.810   XLXI_2/cnt8b<3>
+    SLICE_X46Y74.Y       Tilo                  0.759   XLXI_2/PS_Samp
+                                                       XLXI_2/PS_Samp_cmp_eq00004
+    SLICE_X46Y74.F4      net (fanout=1)        0.023   XLXI_2/PS_Samp_cmp_eq00004/O
+    SLICE_X46Y74.X       Tilo                  0.759   XLXI_2/PS_Samp
                                                        XLXI_2/PS_Samp_cmp_eq000010
-    SLICE_X44Y74.F1      net (fanout=5)        0.961   XLXI_2/PS_Samp
-    SLICE_X44Y74.X       Tilo                  0.759   XLXI_2/cntMod11_or0000
+    SLICE_X48Y72.F3      net (fanout=5)        0.408   XLXI_2/PS_Samp
+    SLICE_X48Y72.X       Tilo                  0.759   XLXI_2/cntMod11_or0000
                                                        XLXI_2/cntMod11_or000016
-    SLICE_X46Y72.SR      net (fanout=2)        0.849   XLXI_2/cntMod11_or0000
-    SLICE_X46Y72.CLK     Tsrck                 0.910   XLXI_2/cntMod11<3>
+    SLICE_X50Y70.SR      net (fanout=2)        0.849   XLXI_2/cntMod11_or0000
+    SLICE_X50Y70.CLK     Tsrck                 0.910   XLXI_2/cntMod11<3>
                                                        XLXI_2/cntMod11_3
     -------------------------------------------------  ---------------------------
-    Total                                      6.659ns (3.774ns logic, 2.885ns route)
-                                                       (56.7% logic, 43.3% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point XLXI_2/cntMod11_2 (SLICE_X46Y72.SR), 19 paths
---------------------------------------------------------------------------------
-Slack (setup path):     12.485ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               XLXI_2/cnt8b_5 (FF)
-  Destination:          XLXI_2/cntMod11_2 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      7.494ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.021ns (0.016 - 0.037)
-  Source Clock:         Clk_50MHz_BUFGP rising at 0.000ns
-  Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.000ns
-
-  Maximum Data Path: XLXI_2/cnt8b_5 to XLXI_2/cntMod11_2
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X43Y84.YQ      Tcko                  0.587   XLXI_2/cnt8b<4>
-                                                       XLXI_2/cnt8b_5
-    SLICE_X42Y84.F1      net (fanout=2)        1.549   XLXI_2/cnt8b<5>
-    SLICE_X42Y84.X       Tilo                  0.759   XLXI_2/PS_Samp_cmp_eq00009
-                                                       XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.F2      net (fanout=1)        0.361   XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.X       Tilo                  0.759   XLXI_2/PS_Samp
-                                                       XLXI_2/PS_Samp_cmp_eq000010
-    SLICE_X44Y74.F1      net (fanout=5)        0.961   XLXI_2/PS_Samp
-    SLICE_X44Y74.X       Tilo                  0.759   XLXI_2/cntMod11_or0000
-                                                       XLXI_2/cntMod11_or000016
-    SLICE_X46Y72.SR      net (fanout=2)        0.849   XLXI_2/cntMod11_or0000
-    SLICE_X46Y72.CLK     Tsrck                 0.910   XLXI_2/cntMod11<3>
-                                                       XLXI_2/cntMod11_2
-    -------------------------------------------------  ---------------------------
-    Total                                      7.494ns (3.774ns logic, 3.720ns route)
-                                                       (50.4% logic, 49.6% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     13.262ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               XLXI_2/cnt8b_6 (FF)
-  Destination:          XLXI_2/cntMod11_2 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.717ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.021ns (0.016 - 0.037)
-  Source Clock:         Clk_50MHz_BUFGP rising at 0.000ns
-  Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.000ns
-
-  Maximum Data Path: XLXI_2/cnt8b_6 to XLXI_2/cntMod11_2
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X43Y85.XQ      Tcko                  0.591   XLXI_2/cnt8b<6>
-                                                       XLXI_2/cnt8b_6
-    SLICE_X42Y84.F2      net (fanout=2)        0.768   XLXI_2/cnt8b<6>
-    SLICE_X42Y84.X       Tilo                  0.759   XLXI_2/PS_Samp_cmp_eq00009
-                                                       XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.F2      net (fanout=1)        0.361   XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.X       Tilo                  0.759   XLXI_2/PS_Samp
-                                                       XLXI_2/PS_Samp_cmp_eq000010
-    SLICE_X44Y74.F1      net (fanout=5)        0.961   XLXI_2/PS_Samp
-    SLICE_X44Y74.X       Tilo                  0.759   XLXI_2/cntMod11_or0000
-                                                       XLXI_2/cntMod11_or000016
-    SLICE_X46Y72.SR      net (fanout=2)        0.849   XLXI_2/cntMod11_or0000
-    SLICE_X46Y72.CLK     Tsrck                 0.910   XLXI_2/cntMod11<3>
-                                                       XLXI_2/cntMod11_2
-    -------------------------------------------------  ---------------------------
-    Total                                      6.717ns (3.778ns logic, 2.939ns route)
-                                                       (56.2% logic, 43.8% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     13.320ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               XLXI_2/cnt8b_7 (FF)
-  Destination:          XLXI_2/cntMod11_2 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.659ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.021ns (0.016 - 0.037)
-  Source Clock:         Clk_50MHz_BUFGP rising at 0.000ns
-  Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.000ns
-
-  Maximum Data Path: XLXI_2/cnt8b_7 to XLXI_2/cntMod11_2
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X43Y85.YQ      Tcko                  0.587   XLXI_2/cnt8b<6>
-                                                       XLXI_2/cnt8b_7
-    SLICE_X42Y84.F3      net (fanout=2)        0.714   XLXI_2/cnt8b<7>
-    SLICE_X42Y84.X       Tilo                  0.759   XLXI_2/PS_Samp_cmp_eq00009
-                                                       XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.F2      net (fanout=1)        0.361   XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.X       Tilo                  0.759   XLXI_2/PS_Samp
-                                                       XLXI_2/PS_Samp_cmp_eq000010
-    SLICE_X44Y74.F1      net (fanout=5)        0.961   XLXI_2/PS_Samp
-    SLICE_X44Y74.X       Tilo                  0.759   XLXI_2/cntMod11_or0000
-                                                       XLXI_2/cntMod11_or000016
-    SLICE_X46Y72.SR      net (fanout=2)        0.849   XLXI_2/cntMod11_or0000
-    SLICE_X46Y72.CLK     Tsrck                 0.910   XLXI_2/cntMod11<3>
-                                                       XLXI_2/cntMod11_2
-    -------------------------------------------------  ---------------------------
-    Total                                      6.659ns (3.774ns logic, 2.885ns route)
-                                                       (56.7% logic, 43.3% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point XLXI_2/cntMod11_0 (SLICE_X46Y73.SR), 19 paths
---------------------------------------------------------------------------------
-Slack (setup path):     12.485ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               XLXI_2/cnt8b_5 (FF)
-  Destination:          XLXI_2/cntMod11_0 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      7.494ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.021ns (0.016 - 0.037)
-  Source Clock:         Clk_50MHz_BUFGP rising at 0.000ns
-  Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.000ns
-
-  Maximum Data Path: XLXI_2/cnt8b_5 to XLXI_2/cntMod11_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X43Y84.YQ      Tcko                  0.587   XLXI_2/cnt8b<4>
-                                                       XLXI_2/cnt8b_5
-    SLICE_X42Y84.F1      net (fanout=2)        1.549   XLXI_2/cnt8b<5>
-    SLICE_X42Y84.X       Tilo                  0.759   XLXI_2/PS_Samp_cmp_eq00009
-                                                       XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.F2      net (fanout=1)        0.361   XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.X       Tilo                  0.759   XLXI_2/PS_Samp
-                                                       XLXI_2/PS_Samp_cmp_eq000010
-    SLICE_X44Y74.F1      net (fanout=5)        0.961   XLXI_2/PS_Samp
-    SLICE_X44Y74.X       Tilo                  0.759   XLXI_2/cntMod11_or0000
-                                                       XLXI_2/cntMod11_or000016
-    SLICE_X46Y73.SR      net (fanout=2)        0.849   XLXI_2/cntMod11_or0000
-    SLICE_X46Y73.CLK     Tsrck                 0.910   XLXI_2/cntMod11<0>
-                                                       XLXI_2/cntMod11_0
-    -------------------------------------------------  ---------------------------
-    Total                                      7.494ns (3.774ns logic, 3.720ns route)
-                                                       (50.4% logic, 49.6% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     13.262ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               XLXI_2/cnt8b_6 (FF)
-  Destination:          XLXI_2/cntMod11_0 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.717ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.021ns (0.016 - 0.037)
-  Source Clock:         Clk_50MHz_BUFGP rising at 0.000ns
-  Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.000ns
-
-  Maximum Data Path: XLXI_2/cnt8b_6 to XLXI_2/cntMod11_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X43Y85.XQ      Tcko                  0.591   XLXI_2/cnt8b<6>
-                                                       XLXI_2/cnt8b_6
-    SLICE_X42Y84.F2      net (fanout=2)        0.768   XLXI_2/cnt8b<6>
-    SLICE_X42Y84.X       Tilo                  0.759   XLXI_2/PS_Samp_cmp_eq00009
-                                                       XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.F2      net (fanout=1)        0.361   XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.X       Tilo                  0.759   XLXI_2/PS_Samp
-                                                       XLXI_2/PS_Samp_cmp_eq000010
-    SLICE_X44Y74.F1      net (fanout=5)        0.961   XLXI_2/PS_Samp
-    SLICE_X44Y74.X       Tilo                  0.759   XLXI_2/cntMod11_or0000
-                                                       XLXI_2/cntMod11_or000016
-    SLICE_X46Y73.SR      net (fanout=2)        0.849   XLXI_2/cntMod11_or0000
-    SLICE_X46Y73.CLK     Tsrck                 0.910   XLXI_2/cntMod11<0>
-                                                       XLXI_2/cntMod11_0
-    -------------------------------------------------  ---------------------------
-    Total                                      6.717ns (3.778ns logic, 2.939ns route)
-                                                       (56.2% logic, 43.8% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     13.320ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               XLXI_2/cnt8b_7 (FF)
-  Destination:          XLXI_2/cntMod11_0 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      6.659ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.021ns (0.016 - 0.037)
-  Source Clock:         Clk_50MHz_BUFGP rising at 0.000ns
-  Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.000ns
-
-  Maximum Data Path: XLXI_2/cnt8b_7 to XLXI_2/cntMod11_0
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X43Y85.YQ      Tcko                  0.587   XLXI_2/cnt8b<6>
-                                                       XLXI_2/cnt8b_7
-    SLICE_X42Y84.F3      net (fanout=2)        0.714   XLXI_2/cnt8b<7>
-    SLICE_X42Y84.X       Tilo                  0.759   XLXI_2/PS_Samp_cmp_eq00009
-                                                       XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.F2      net (fanout=1)        0.361   XLXI_2/PS_Samp_cmp_eq00009
-    SLICE_X42Y82.X       Tilo                  0.759   XLXI_2/PS_Samp
-                                                       XLXI_2/PS_Samp_cmp_eq000010
-    SLICE_X44Y74.F1      net (fanout=5)        0.961   XLXI_2/PS_Samp
-    SLICE_X44Y74.X       Tilo                  0.759   XLXI_2/cntMod11_or0000
-                                                       XLXI_2/cntMod11_or000016
-    SLICE_X46Y73.SR      net (fanout=2)        0.849   XLXI_2/cntMod11_or0000
-    SLICE_X46Y73.CLK     Tsrck                 0.910   XLXI_2/cntMod11<0>
-                                                       XLXI_2/cntMod11_0
-    -------------------------------------------------  ---------------------------
-    Total                                      6.659ns (3.774ns logic, 2.885ns route)
-                                                       (56.7% logic, 43.3% route)
+    Total                                      5.864ns (3.774ns logic, 2.090ns route)
+                                                       (64.4% logic, 35.6% route)
 
 --------------------------------------------------------------------------------
 
 Hold Paths: NET "Clk_50MHz_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point XLXI_2/F0 (SLICE_X38Y60.BX), 1 path
+Paths for end point XLXI_2/F0 (SLICE_X48Y52.BX), 1 path
 --------------------------------------------------------------------------------
 Slack (hold path):      0.968ns (requirement - (clock path skew + uncertainty - data path))
   Source:               XLXI_2/qF0 (FF)
@@ -366,10 +369,10 @@ Slack (hold path):      0.968ns (requirement - (clock path skew + uncertainty - 
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X39Y60.YQ      Tcko                  0.470   XLXI_2/qF0
+    SLICE_X49Y52.YQ      Tcko                  0.470   XLXI_2/qF0
                                                        XLXI_2/qF0
-    SLICE_X38Y60.BX      net (fanout=1)        0.364   XLXI_2/qF0
-    SLICE_X38Y60.CLK     Tckdi       (-Th)    -0.134   XLXN_3
+    SLICE_X48Y52.BX      net (fanout=1)        0.364   XLXI_2/qF0
+    SLICE_X48Y52.CLK     Tckdi       (-Th)    -0.134   XLXN_3
                                                        XLXI_2/F0
     -------------------------------------------------  ---------------------------
     Total                                      0.968ns (0.604ns logic, 0.364ns route)
@@ -377,57 +380,57 @@ Slack (hold path):      0.968ns (requirement - (clock path skew + uncertainty - 
 
 --------------------------------------------------------------------------------
 
-Paths for end point XLXI_2/ResDORdy/prevDIn (SLICE_X37Y59.BY), 1 path
+Paths for end point XLXI_2/reg11b_9 (SLICE_X53Y52.BY), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      1.029ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               XLXI_2/ResDORdy/qDIn (FF)
-  Destination:          XLXI_2/ResDORdy/prevDIn (FF)
+Slack (hold path):      1.028ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               XLXI_2/reg11b_10 (FF)
+  Destination:          XLXI_2/reg11b_9 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      1.031ns (Levels of Logic = 0)
-  Clock Path Skew:      0.002ns (0.005 - 0.003)
-  Source Clock:         Clk_50MHz_BUFGP rising at 20.000ns
-  Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.000ns
-
-  Minimum Data Path: XLXI_2/ResDORdy/qDIn to XLXI_2/ResDORdy/prevDIn
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X37Y60.YQ      Tcko                  0.470   XLXI_2/ResDORdy/qDIn
-                                                       XLXI_2/ResDORdy/qDIn
-    SLICE_X37Y59.BY      net (fanout=3)        0.426   XLXI_2/ResDORdy/qDIn
-    SLICE_X37Y59.CLK     Tckdi       (-Th)    -0.135   XLXI_2/ResDORdy/prevDIn
-                                                       XLXI_2/ResDORdy/prevDIn
-    -------------------------------------------------  ---------------------------
-    Total                                      1.031ns (0.605ns logic, 0.426ns route)
-                                                       (58.7% logic, 41.3% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point XLXI_4/Clock (SLICE_X33Y8.BY), 1 path
---------------------------------------------------------------------------------
-Slack (hold path):      1.033ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               XLXI_4/Clock (FF)
-  Destination:          XLXI_4/Clock (FF)
-  Requirement:          0.000ns
-  Data Path Delay:      1.033ns (Levels of Logic = 0)
+  Data Path Delay:      1.028ns (Levels of Logic = 0)
   Clock Path Skew:      0.000ns
   Source Clock:         Clk_50MHz_BUFGP rising at 20.000ns
   Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path: XLXI_4/Clock to XLXI_4/Clock
+  Minimum Data Path: XLXI_2/reg11b_10 to XLXI_2/reg11b_9
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X33Y8.YQ       Tcko                  0.470   XLXI_4/Clock1
-                                                       XLXI_4/Clock
-    SLICE_X33Y8.BY       net (fanout=2)        0.428   XLXI_4/Clock1
-    SLICE_X33Y8.CLK      Tckdi       (-Th)    -0.135   XLXI_4/Clock1
-                                                       XLXI_4/Clock
+    SLICE_X53Y52.XQ      Tcko                  0.473   XLXI_2/reg11b<10>
+                                                       XLXI_2/reg11b_10
+    SLICE_X53Y52.BY      net (fanout=2)        0.420   XLXI_2/reg11b<10>
+    SLICE_X53Y52.CLK     Tckdi       (-Th)    -0.135   XLXI_2/reg11b<10>
+                                                       XLXI_2/reg11b_9
     -------------------------------------------------  ---------------------------
-    Total                                      1.033ns (0.605ns logic, 0.428ns route)
-                                                       (58.6% logic, 41.4% route)
+    Total                                      1.028ns (0.608ns logic, 0.420ns route)
+                                                       (59.1% logic, 40.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point XLXI_2/reg11b_7 (SLICE_X51Y52.BY), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      1.029ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               XLXI_2/reg11b_8 (FF)
+  Destination:          XLXI_2/reg11b_7 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      1.029ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clk_50MHz_BUFGP rising at 20.000ns
+  Destination Clock:    Clk_50MHz_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: XLXI_2/reg11b_8 to XLXI_2/reg11b_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y52.XQ      Tcko                  0.473   XLXN_1<7>
+                                                       XLXI_2/reg11b_8
+    SLICE_X51Y52.BY      net (fanout=9)        0.421   XLXN_1<7>
+    SLICE_X51Y52.CLK     Tckdi       (-Th)    -0.135   XLXN_1<7>
+                                                       XLXI_2/reg11b_7
+    -------------------------------------------------  ---------------------------
+    Total                                      1.029ns (0.608ns logic, 0.421ns route)
+                                                       (59.1% logic, 40.9% route)
 
 --------------------------------------------------------------------------------
 
@@ -437,26 +440,26 @@ Slack: 18.348ns (period - (min low pulse limit / (low pulse / period)))
   Period: 20.000ns
   Low pulse: 10.000ns
   Low pulse limit: 0.826ns (Tcl)
-  Physical resource: XLXI_3/P1<2>/CLK
-  Logical resource: XLXI_3/P1_2/CK
-  Location pin: SLICE_X34Y54.CLK
+  Physical resource: XLXI_2/cntMod11<3>/CLK
+  Logical resource: XLXI_2/cntMod11_3/CK
+  Location pin: SLICE_X50Y70.CLK
   Clock network: Clk_50MHz_BUFGP
 --------------------------------------------------------------------------------
 Slack: 18.348ns (period - (min high pulse limit / (high pulse / period)))
   Period: 20.000ns
   High pulse: 10.000ns
   High pulse limit: 0.826ns (Tch)
-  Physical resource: XLXI_3/P1<2>/CLK
-  Logical resource: XLXI_3/P1_2/CK
-  Location pin: SLICE_X34Y54.CLK
+  Physical resource: XLXI_2/cntMod11<3>/CLK
+  Logical resource: XLXI_2/cntMod11_3/CK
+  Location pin: SLICE_X50Y70.CLK
   Clock network: Clk_50MHz_BUFGP
 --------------------------------------------------------------------------------
 Slack: 18.348ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 1.652ns (605.327MHz) (Tcp)
-  Physical resource: XLXI_3/P1<2>/CLK
-  Logical resource: XLXI_3/P1_2/CK
-  Location pin: SLICE_X34Y54.CLK
+  Physical resource: XLXI_2/cntMod11<3>/CLK
+  Logical resource: XLXI_2/cntMod11_3/CK
+  Location pin: SLICE_X50Y70.CLK
   Clock network: Clk_50MHz_BUFGP
 --------------------------------------------------------------------------------
 
@@ -473,7 +476,7 @@ Clock to Setup on destination clock Clk_50MHz
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-Clk_50MHz      |    7.515|         |         |         |
+Clk_50MHz      |    6.026|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
@@ -482,23 +485,23 @@ Timing summary:
 
 Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
 
-Constraints cover 445 paths, 0 nets, and 280 connections
+Constraints cover 456 paths, 0 nets, and 296 connections
 
 Design statistics:
-   Minimum period:   7.515ns{1}   (Maximum frequency: 133.067MHz)
+   Minimum period:   6.026ns{1}   (Maximum frequency: 165.948MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Fri Mar 17 14:25:37 2017 
+Analysis completed Tue Mar 21 10:01:56 2017 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 117 MB
+Peak Memory Usage: 118 MB
 
 
 

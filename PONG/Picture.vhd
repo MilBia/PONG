@@ -62,13 +62,15 @@ signal  P2i :  STD_LOGIC_VECTOR (2 downto 0);
 signal  pal1 : Integer range 0 to 1023;
 signal  pal2 : Integer range 0 to 1023;
 --rozmiar paletek
-constant palX :  Integer:=40;
+constant palX :  Integer:=15;
 constant palY :  Integer:=100;
 --punkty
-signal pkt1 : STD_LOGIC_VECTOR (2 downto 0);
-signal pkt2 : STD_LOGIC_VECTOR (2 downto 0);
+signal pkt1 : Integer range 0 to 5;
+signal pkt2 : Integer range 0 to 5;
 signal Vx :  STD_LOGIC;
 signal Vy :  STD_LOGIC;
+--czy gramy
+signal play :  STD_LOGIC;
 
 begin
 Xi <= TO_INTEGER( UNSIGNED( x));
@@ -86,7 +88,7 @@ begin
    end if;
 end process;
 
-gra : process(P1, P2, Clock, CLR)
+gra : process(Clock, CLR)
 begin
 	if CLR = '1' then
 		RGB <= "000";
@@ -94,27 +96,49 @@ begin
       Ykw <= 0;
       Vx <='1';
       Vy <='1';
-      Xkw <= 40;
-      Ykw <= 200;
       temp <= 0;
-		pkt1 <= "000";
-		pkt2 <= "000";
+		pkt1 <= 0;
+		pkt2 <= 0;
 		pal1 <= 190;
 		pal2 <= 190;
+      Xkw <= 39;
+      Ykw <= pal2 + 50;
+      play <= '0';
    elsif rising_edge( Clock ) then
 		--wyswietlanie
-      if Xi> Xkw and Xi<Xkw+R and Yi>Ykw and Yi<Ykw+R then
-				RGB <="111";
-			elsif Xi > 619 and Xi< 639 and Yi>pal1 and Yi<pal1+palY  then
-				RGB <="001";
-			elsif Xi > 20 and Xi< 40 and Yi>pal2 and Yi<pal2+palY  then
-				RGB <="100";
-			else
-				RGB <="000";
+      if Xi> Xkw and Xi<Xkw+R and Yi>Ykw and Yi<Ykw+R then --po³eczka
+			RGB <="111";
+		elsif Xi > 619 and Xi< 639 and Yi>pal1 and Yi<pal1+palY  then --paletka1
+			RGB <="001";
+		elsif Xi > 400 and Xi< (400 + (10*pkt1)) and Yi>10 and Yi<20 then --pkt1
+         if pkt1 < 5 then
+            RGB <="001";
+         else
+            RGB <="111";
+         end if;
+		elsif Xi > 20 and Xi< 40 and Yi>pal2 and Yi<pal2+palY  then --paletka2
+			RGB <="100";
+		elsif Xi > (200 - (10*pkt2)) and Xi< 200 and Yi>10 and Yi<20 then --pkt2
+         if pkt2 < 5 then
+            RGB <="100";
+         else
+            RGB <="111";
+         end if;
+		else --t³o
+			RGB <="000";
 		end if;
+      
+      --ENTER startuje grê
+      if ENTER = '1' and play = '0' then
+         play <='1';
+         pkt1 <= 0;
+         pkt2 <= 0;
+         Xkw <= 39;
+         Ykw <= pal2 + 50;
+      end if;
 		
 		--sterowanie pi³eczk¹ / zwolnienie zegara
-      if Yi = 479 then
+      if Yi = 479 and play = '1' then
          temp <= temp +1;
          if temp = 0 then
          --PI£ECZAK
@@ -128,27 +152,45 @@ begin
 --            if (Ykw+R = 478 or Ykw=1) then
 --               Vy <= not Vy;
 --            end if;
-            --inkrementacje
+            --inkrementacje i odbicia
             if Vy ='1' then
                Ykw <= Ykw + 1;
-               if Ykw+R = 478 then
+               if Ykw+R = 478 then --dolna banda
                   Vy <= '0';
                end if;
             else
                Ykw <= Ykw - 1;
-               if Ykw = 1 then
+               if Ykw = 1 then --górna banda
                   Vy <= '1';
                end if;
             end if;
             if Vx ='1' then
                Xkw <= Xkw + 1;
-               if Xkw+R = 638 then
-                  Vx <= '0';
+               if Xkw+R = 618 then --prawa banda
+						if Ykw>pal1 and Ykw<pal1+palY then
+							Vx <= '0';
+						else
+							pkt2 <= pkt2 + 1;
+                     if pkt2 = 4 then
+                        play <= '0';
+                     end if;
+							Xkw <= 618 - R;
+							Ykw <= pal1 + 50;
+						end if;
                end if;
             else
                Xkw <= Xkw - 1;
-               if Xkw = 1 then
-                  Vx <= '1';
+               if Xkw = 39 then --lewa banda
+						if Ykw>pal2 and Ykw<pal2+palY then
+							Vx <= '1';
+						else
+							pkt1 <= pkt1 + 1;
+                     if pkt1 = 4 then
+                        play <= '0';
+                     end if;
+							Xkw <= 39;
+							Ykw <= pal2 + 50;
+						end if;
                end if;
             end if;
          --PALETKI
