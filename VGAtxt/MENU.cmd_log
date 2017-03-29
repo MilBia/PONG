@@ -7,20 +7,24 @@ spl2sym -intstyle ise -family spartan3e MENU.spl D:/NAUKA/Xilinx/VGAtxt/MENU.sym
 vhdtdtfi -lib work MENU.vhd -prj VGAtxt -o MENU.spl -module MENU -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
 spl2sym -intstyle ise -family spartan3e MENU.spl D:/NAUKA/Xilinx/VGAtxt/MENU.sym 
 vhdtdtfi -lib work MENU.vhd -prj VGAtxt -o MENU.spl -module MENU -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan3e MENU.spl F:/UCiSW2/VGAtxt/MENU.sym 
+spl2sym -intstyle ise -family spartan3e MENU.spl D:/NAUKA/Xilinx/VGAtxt/MENU.sym 
 vhdtdtfi -lib work MENU.vhd -prj VGAtxt -o MENU.spl -module MENU -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan3e MENU.spl F:/UCiSW2/VGAtxt/MENU.sym 
+spl2sym -intstyle ise -family spartan3e MENU.spl D:/NAUKA/Xilinx/VGAtxt/MENU.sym 
 vhdtdtfi -lib work MENU.vhd -prj VGAtxt -o MENU.spl -module MENU -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan3e MENU.spl F:/UCiSW2/VGAtxt/MENU.sym 
+spl2sym -intstyle ise -family spartan3e MENU.spl D:/NAUKA/Xilinx/VGAtxt/MENU.sym 
 vhdtdtfi -lib work MENU.vhd -prj VGAtxt -o MENU.spl -module MENU -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan3e MENU.spl F:/UCiSW2/VGAtxt/MENU.sym 
+spl2sym -intstyle ise -family spartan3e MENU.spl D:/NAUKA/Xilinx/VGAtxt/MENU.sym 
 vhdtdtfi -lib work MENU.vhd -prj VGAtxt -o MENU.spl -module MENU -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan3e MENU.spl F:/UCiSW2/VGAtxt/MENU.sym 
+spl2sym -intstyle ise -family spartan3e MENU.spl D:/NAUKA/Xilinx/VGAtxt/MENU.sym 
 vhdtdtfi -lib work MENU.vhd -prj VGAtxt -o MENU.spl -module MENU -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan3e MENU.spl F:/UCiSW2/VGAtxt/MENU.sym 
+spl2sym -intstyle ise -family spartan3e MENU.spl D:/NAUKA/Xilinx/VGAtxt/MENU.sym 
 vhdtdtfi -lib work MENU.vhd -prj VGAtxt -o MENU.spl -module MENU -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan3e MENU.spl F:/UCiSW2/VGAtxt/MENU.sym 
+spl2sym -intstyle ise -family spartan3e MENU.spl D:/NAUKA/Xilinx/VGAtxt/MENU.sym 
 vhdtdtfi -lib work MENU.vhd -prj VGAtxt -o MENU.spl -module MENU -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan3e MENU.spl F:/UCiSW2/VGAtxt/MENU.sym 
+spl2sym -intstyle ise -family spartan3e MENU.spl D:/NAUKA/Xilinx/VGAtxt/MENU.sym 
 vhdtdtfi -lib work MENU.vhd -prj VGAtxt -o MENU.spl -module MENU -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
-spl2sym -intstyle ise -family spartan3e MENU.spl F:/UCiSW2/VGAtxt/MENU.sym 
+spl2sym -intstyle ise -family spartan3e MENU.spl D:/NAUKA/Xilinx/VGAtxt/MENU.sym 
+vhdtdtfi -lib work MENU.vhd -prj VGAtxt -o MENU.spl -module MENU -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MENU.spl D:/NAUKA/Xilinx/VGAtxt/MENU.sym 
+vhdtdtfi -lib work MENU.vhd -prj VGAtxt -o MENU.spl -module MENU -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e MENU.spl D:/NAUKA/Xilinx/VGAtxt/MENU.sym 

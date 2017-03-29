@@ -1,9 +1,13 @@
 [Inputs]
+ENTER
+ESC
 Clk
 Reset
 Busy
+=STER1[2:0]=
 [Outputs]
 Char_WE
 NewLine
+Goto00
 =Char_DI[7:0]=
 [BiDir]

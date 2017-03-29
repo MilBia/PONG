@@ -1,0 +1,2 @@
+vhdtdtfi -lib work PS2_to_STER.vhd -prj VGAtxt -o PS2_to_STER.spl -module PS2_to_STER -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e PS2_to_STER.spl D:/NAUKA/Xilinx/VGAtxt/PS2_to_STER.sym 
