@@ -1,0 +1,9 @@
+[Inputs]
+Clk
+Reset
+Busy
+[Outputs]
+Char_WE
+NewLine
+=Char_DI[7:0]=
+[BiDir]

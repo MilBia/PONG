@@ -1,0 +1,481 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Reading design: Main.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Main.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Main"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : Main
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "F:/UCiSW2/VGAtxt/MENU.vhd" in Library work.
+Entity <menu> compiled.
+Entity <menu> (Architecture <behavioral>) compiled.
+Compiling vhdl file "F:/UCiSW2/VGAtxt/Main.vhf" in Library work.
+Entity <main> compiled.
+Entity <main> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <Main> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <MENU> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <Main> in library <work> (Architecture <behavioral>).
+WARNING:Xst:2211 - "F:/UCiSW2/VGAtxt/Main.vhf" line 92: Instantiating black box module <VGAtxt48x20>.
+Entity <Main> analyzed. Unit <Main> generated.
+
+Analyzing Entity <MENU> in library <work> (Architecture <behavioral>).
+Entity <MENU> analyzed. Unit <MENU> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <MENU>.
+    Related source file is "F:/UCiSW2/VGAtxt/MENU.vhd".
+INFO:Xst:1799 - State q1 is never reached in FSM <CurrentCounterState>.
+INFO:Xst:1799 - State q13 is never reached in FSM <CurrentCounterState>.
+    Found finite state machine <FSM_0> for signal <CurrentCounterState>.
+    -----------------------------------------------------------------------
+    | States             | 13                                             |
+    | Transitions        | 24                                             |
+    | Inputs             | 12                                             |
+    | Outputs            | 13                                             |
+    | Clock              | Clk                       (rising_edge)        |
+    | Clock enable       | CurrentCounterState$and0001 (positive)         |
+    | Reset              | CurrentCounterState$and0000 (positive)         |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | q0                                             |
+    | Power Up State     | q0                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit register for signal <Char_DI>.
+    Found 1-bit register for signal <Char_WE>.
+    Found 1-bit register for signal <NewLine>.
+    Found 3-bit up counter for signal <Clk_Counter>.
+    Found 5-bit comparator less for signal <CurrentCounterState$cmp_lt0000> created at line 129.
+    Found 5-bit register for signal <index>.
+    Found 5-bit adder for signal <index$addsub0000> created at line 130.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred   7 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <MENU> synthesized.
+
+
+Synthesizing Unit <Main>.
+    Related source file is "F:/UCiSW2/VGAtxt/Main.vhf".
+Unit <Main> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 5-bit adder                                           : 1
+# Counters                                             : 1
+ 3-bit up counter                                      : 1
+# Registers                                            : 4
+ 1-bit register                                        : 2
+ 5-bit register                                        : 1
+ 8-bit register                                        : 1
+# Comparators                                          : 1
+ 5-bit comparator less                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <XLXI_7/CurrentCounterState/FSM> on signal <CurrentCounterState[1:13]> with one-hot encoding.
+------------------------
+ State | Encoding
+------------------------
+ q0    | 0000000000001
+ q1    | unreached
+ q2    | 0100000000000
+ q3    | 0010000000000
+ q4    | 0001000000000
+ q5    | 0000100000000
+ q6    | 0000010000000
+ q7    | 0000001000000
+ q8    | 0000000100000
+ q9    | 0000000010000
+ q10   | 0000000001000
+ q11   | 0000000000100
+ q12   | 0000000000010
+ q13   | unreached
+ q14   | 1000000000000
+------------------------
+Reading core <VGAtxt48x20.ngc>.
+Loading core <VGAtxt48x20> for timing and area information for instance <XLXI_1>.
+WARNING:Xst:1293 - FF/Latch <index_4> has a constant value of 0 in block <XLXI_7>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Counters                                             : 1
+ 3-bit up counter                                      : 1
+# Registers                                            : 15
+ Flip-Flops                                            : 15
+# Comparators                                          : 1
+ 5-bit comparator less                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <index_4> has a constant value of 0 in block <MENU>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Char_DI_7> (without init value) has a constant value of 0 in block <MENU>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <Main> ...
+
+Optimizing unit <MENU> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Main, actual ratio is 3.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 29
+ Flip-Flops                                            : 29
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Main.ngr
+Top Level Output File Name         : Main
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 7
+
+Cell Usage :
+# BELS                             : 418
+#      AND2                        : 1
+#      AND3                        : 4
+#      AND3B1                      : 4
+#      BUF                         : 3
+#      GND                         : 2
+#      INV                         : 9
+#      LUT1                        : 43
+#      LUT2                        : 35
+#      LUT2_L                      : 4
+#      LUT3                        : 38
+#      LUT3_L                      : 2
+#      LUT4                        : 119
+#      LUT4_D                      : 4
+#      LUT4_L                      : 7
+#      MUXCY                       : 53
+#      MUXF5                       : 23
+#      MUXF5_L                     : 2
+#      MUXF6                       : 6
+#      OR2                         : 6
+#      VCC                         : 1
+#      XOR2                        : 1
+#      XORCY                       : 51
+# FlipFlops/Latches                : 127
+#      FD                          : 35
+#      FDC                         : 4
+#      FDCE                        : 17
+#      FDE                         : 18
+#      FDPE                        : 3
+#      FDR                         : 14
+#      FDRE                        : 35
+#      FDSE                        : 1
+# RAMS                             : 2
+#      RAMB16_S9                   : 1
+#      RAMB16_S9_S9                : 1
+# Shift Registers                  : 3
+#      SRL16                       : 3
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 6
+#      IBUF                        : 1
+#      OBUF                        : 5
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                      150  out of   4656     3%  
+ Number of Slice Flip Flops:            127  out of   9312     1%  
+ Number of 4 input LUTs:                264  out of   9312     2%  
+    Number used as logic:               261
+    Number used as Shift registers:       3
+ Number of IOs:                           7
+ Number of bonded IOBs:                   7  out of    232     3%  
+ Number of BRAMs:                         2  out of     20    10%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+Clk_50MHz                          | BUFGP                  | 132   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-------------------------------------------------------------------------+------------------------+-------+
+Control Signal                                                           | Buffer(FF name)        | Load  |
+-------------------------------------------------------------------------+------------------------+-------+
+XLXI_7/CurrentCounterState_and0000(XLXI_7/CurrentCounterState_and00001:O)| NONE(XLXI_7/Char_DI_0) | 24    |
+-------------------------------------------------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 9.574ns (Maximum Frequency: 104.450MHz)
+   Minimum input arrival time before clock: 7.148ns
+   Maximum output required time after clock: 5.518ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk_50MHz'
+  Clock period: 9.574ns (frequency: 104.450MHz)
+  Total number of paths / destination ports: 2960 / 297
+-------------------------------------------------------------------------
+Delay:               9.574ns (Levels of Logic = 9)
+  Source:            XLXI_1/XLXI_147/Mrom_DO_rom0000 (RAM)
+  Destination:       XLXI_1/XLXI_115/XLXI_155/PixOut (FF)
+  Source Clock:      Clk_50MHz rising
+  Destination Clock: Clk_50MHz rising
+
+  Data Path: XLXI_1/XLXI_147/Mrom_DO_rom0000 to XLXI_1/XLXI_115/XLXI_155/PixOut
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB16_S9:CLK->DO6    1   2.800   0.420  XLXI_147/Mrom_DO_rom0000 (XLXN_899<6>)
+     begin scope: 'XLXI_115/XLXI_1'
+     begin scope: 'I_M01'
+     AND3:I0->O            1   0.704   0.420  I_36_30 (M1)
+     OR2:I0->O             1   0.704   0.000  I_36_38 (O)
+     end scope: 'I_M01'
+     MUXF5_L:I0->LO        1   0.321   0.000  I_M03 (M03)
+     MUXF6:I0->O           1   0.521   0.420  I_O (O)
+     end scope: 'XLXI_115/XLXI_1'
+     XOR2:I0->O            1   0.704   0.420  XLXI_115/XLXI_141 (XLXI_115/XLXN_727)
+     AND2:I1->O            1   0.704   0.424  XLXI_115/XLXI_154 (XLXI_115/XLXN_762)
+     LUT4:I3->O            1   0.704   0.000  XLXI_115/XLXI_155/iPixOut103 (XLXI_115/XLXI_155/iPixOut)
+     FD:D                      0.308          XLXI_115/XLXI_155/PixOut
+    ----------------------------------------
+    Total                      9.574ns (7.470ns logic, 2.104ns route)
+                                       (78.0% logic, 22.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk_50MHz'
+  Total number of paths / destination ports: 34 / 29
+-------------------------------------------------------------------------
+Offset:              7.148ns (Levels of Logic = 4)
+  Source:            btn_west (PAD)
+  Destination:       XLXI_7/index_3 (FF)
+  Destination Clock: Clk_50MHz rising
+
+  Data Path: btn_west to XLXI_7/index_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   1.218   0.587  btn_west_IBUF (btn_west_IBUF)
+     OR2:I1->O             5   0.704   0.712  XLXI_8 (XLXN_20)
+     LUT4:I1->O           23   0.704   1.377  XLXI_7/Char_WE_mux000021 (XLXI_7/CurrentCounterState_and0001)
+     LUT2:I0->O            4   0.704   0.587  XLXI_7/index_and00011 (XLXI_7/index_and0001)
+     FDE:CE                    0.555          XLXI_7/index_0
+    ----------------------------------------
+    Total                      7.148ns (3.885ns logic, 3.263ns route)
+                                       (54.4% logic, 45.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk_50MHz'
+  Total number of paths / destination ports: 5 / 5
+-------------------------------------------------------------------------
+Offset:              5.518ns (Levels of Logic = 3)
+  Source:            XLXI_1/XLXI_115/XLXI_155/PixOut (FF)
+  Destination:       VGA_B (PAD)
+  Source Clock:      Clk_50MHz rising
+
+  Data Path: XLXI_1/XLXI_115/XLXI_155/PixOut to VGA_B
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               3   0.591   0.531  XLXI_115/XLXI_155/PixOut (VGA_RGB)
+     end scope: 'XLXI_1'
+     BUF:I->O              1   0.704   0.420  XLXI_3 (VGA_R_OBUF)
+     OBUF:I->O                 3.272          VGA_R_OBUF (VGA_R)
+    ----------------------------------------
+    Total                      5.518ns (4.567ns logic, 0.951ns route)
+                                       (82.8% logic, 17.2% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 9.45 secs
+ 
+--> 
+
+Total memory usage is 219116 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+
