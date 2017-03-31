@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Main.vhf
--- /___/   /\     Timestamp : 03/24/2017 13:37:01
+-- /___/   /\     Timestamp : 03/31/2017 13:51:18
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -28,6 +28,8 @@ use UNISIM.Vcomponents.ALL;
 entity Main is
    port ( btn_west  : in    std_logic; 
           Clk_50MHz : in    std_logic; 
+          PS2_Clk   : in    std_logic; 
+          PS2_Data  : in    std_logic; 
           VGA_B     : out   std_logic; 
           VGA_G     : out   std_logic; 
           VGA_HS    : out   std_logic; 
@@ -43,7 +45,15 @@ architecture BEHAVIORAL of Main is
    signal XLXN_11   : std_logic;
    signal XLXN_12   : std_logic;
    signal XLXN_16   : std_logic;
-   signal XLXN_20   : std_logic;
+   signal XLXN_21   : std_logic;
+   signal XLXN_38   : std_logic;
+   signal XLXN_81   : std_logic;
+   signal XLXN_82   : std_logic;
+   signal XLXN_83   : std_logic;
+   signal XLXN_98   : std_logic_vector (7 downto 0);
+   signal XLXN_99   : std_logic_vector (2 downto 0);
+   signal XLXN_120  : std_logic;
+   signal XLXN_122  : std_logic;
    component VGAtxt48x20
       port ( Char_DI     : in    std_logic_vector (7 downto 0); 
              Home        : in    std_logic; 
@@ -73,12 +83,40 @@ architecture BEHAVIORAL of Main is
    attribute BOX_TYPE of GND : component is "BLACK_BOX";
    
    component MENU
-      port ( Clk     : in    std_logic; 
+      port ( ENTER   : in    std_logic; 
+             ESC     : in    std_logic; 
+             Clk     : in    std_logic; 
              Reset   : in    std_logic; 
              Busy    : in    std_logic; 
+             STER1   : in    std_logic_vector (2 downto 0); 
              Char_WE : out   std_logic; 
              NewLine : out   std_logic; 
+             Goto00  : out   std_logic; 
              Char_DI : out   std_logic_vector (7 downto 0));
+   end component;
+   
+   component PS2_to_STER
+      port ( E0      : in    std_logic; 
+             F0      : in    std_logic; 
+             RS2_Rdy : in    std_logic; 
+             Clr     : in    std_logic; 
+             Clk     : in    std_logic; 
+             D_in    : in    std_logic_vector (7 downto 0); 
+             ENTER   : out   std_logic; 
+             ESC     : out   std_logic; 
+             P1      : out   std_logic_vector (2 downto 0); 
+             P2      : out   std_logic_vector (2 downto 0));
+   end component;
+   
+   component PS2_Kbd
+      port ( PS2_Clk   : in    std_logic; 
+             PS2_Data  : in    std_logic; 
+             Clk_50MHz : in    std_logic; 
+             E0        : out   std_logic; 
+             F0        : out   std_logic; 
+             DO_Rdy    : out   std_logic; 
+             DO        : out   std_logic_vector (7 downto 0); 
+             Clk_Sys   : in    std_logic);
    end component;
    
    component OR2
@@ -95,12 +133,12 @@ begin
                 Clk_Sys=>Clk_50MHz,
                 Clk_50MHz=>Clk_50MHz,
                 CursorOn=>XLXN_7,
-                Goto00=>XLXN_7,
+                Goto00=>XLXN_21,
                 Home=>XLXN_7,
                 NewLine=>XLXN_12,
                 ScrollClear=>XLXN_7,
                 ScrollEn=>XLXN_7,
-                Busy=>XLXN_16,
+                Busy=>XLXN_122,
                 VGA_HS=>VGA_HS,
                 VGA_RGB=>XLXN_3,
                 VGA_VS=>VGA_VS);
@@ -121,17 +159,43 @@ begin
       port map (G=>XLXN_7);
    
    XLXI_7 : MENU
-      port map (Busy=>XLXN_20,
+      port map (Busy=>XLXN_16,
                 Clk=>Clk_50MHz,
+                ENTER=>XLXN_120,
+                ESC=>XLXN_38,
                 Reset=>btn_west,
+                STER1(2 downto 0)=>XLXN_99(2 downto 0),
                 Char_DI(7 downto 0)=>XLXN_10(7 downto 0),
                 Char_WE=>XLXN_11,
+                Goto00=>XLXN_21,
                 NewLine=>XLXN_12);
    
-   XLXI_8 : OR2
-      port map (I0=>XLXN_16,
+   XLXI_9 : PS2_to_STER
+      port map (Clk=>Clk_50MHz,
+                Clr=>btn_west,
+                D_in(7 downto 0)=>XLXN_98(7 downto 0),
+                E0=>XLXN_81,
+                F0=>XLXN_82,
+                RS2_Rdy=>XLXN_83,
+                ENTER=>XLXN_120,
+                ESC=>XLXN_38,
+                P1(2 downto 0)=>XLXN_99(2 downto 0),
+                P2=>open);
+   
+   XLXI_10 : PS2_Kbd
+      port map (Clk_Sys=>Clk_50MHz,
+                Clk_50MHz=>Clk_50MHz,
+                PS2_Clk=>PS2_Clk,
+                PS2_Data=>PS2_Data,
+                DO(7 downto 0)=>XLXN_98(7 downto 0),
+                DO_Rdy=>XLXN_83,
+                E0=>XLXN_81,
+                F0=>XLXN_82);
+   
+   XLXI_12 : OR2
+      port map (I0=>XLXN_122,
                 I1=>btn_west,
-                O=>XLXN_20);
+                O=>XLXN_16);
    
 end BEHAVIORAL;
 

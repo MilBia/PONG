@@ -1,2 +1,3 @@
+vhdl work "PS2_to_STER.vhd"
 vhdl work "MENU.vhd"
 vhdl work "Main.vhf"
