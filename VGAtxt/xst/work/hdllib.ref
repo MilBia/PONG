@@ -1,6 +1,6 @@
-EN menu NULL F:/UCiSW2/VGAtxt/MENU.vhd sub00/vhpl00 1490961376
-AR main behavioral F:/UCiSW2/VGAtxt/Main.vhf sub00/vhpl03 1490961381
-EN main NULL F:/UCiSW2/VGAtxt/Main.vhf sub00/vhpl02 1490961380
-AR ps2_to_ster behavioral F:/UCiSW2/VGAtxt/PS2_to_STER.vhd sub00/vhpl05 1490961379
-AR menu behavioral F:/UCiSW2/VGAtxt/MENU.vhd sub00/vhpl01 1490961377
-EN ps2_to_ster NULL F:/UCiSW2/VGAtxt/PS2_to_STER.vhd sub00/vhpl04 1490961378
+EN menu NULL D:/UCiSW2/VGAtxt/MENU.vhd sub00/vhpl00 1491297541
+AR main behavioral D:/UCiSW2/VGAtxt/Main.vhf sub00/vhpl03 1491297546
+EN main NULL D:/UCiSW2/VGAtxt/Main.vhf sub00/vhpl02 1491297545
+AR ps2_to_ster behavioral D:/UCiSW2/VGAtxt/PS2_to_STER.vhd sub00/vhpl05 1491297544
+AR menu behavioral D:/UCiSW2/VGAtxt/MENU.vhd sub00/vhpl01 1491297542
+EN ps2_to_ster NULL D:/UCiSW2/VGAtxt/PS2_to_STER.vhd sub00/vhpl04 1491297543

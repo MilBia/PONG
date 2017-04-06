@@ -76,7 +76,13 @@
             <line x2="64" y1="-128" y2="-96" x1="64" />
         </blockdef>
         <blockdef name="MENU">
-            <timestamp>2017-3-31T11:50:53</timestamp>
+            <timestamp>2017-4-4T9:18:27</timestamp>
+            <line x2="384" y1="352" y2="352" x1="320" />
+            <line x2="384" y1="416" y2="416" x1="320" />
+            <rect width="64" x="320" y="468" height="24" />
+            <line x2="384" y1="480" y2="480" x1="320" />
+            <rect width="64" x="320" y="532" height="24" />
+            <line x2="384" y1="544" y2="544" x1="320" />
             <rect width="64" x="0" y="276" height="24" />
             <line x2="0" y1="288" y2="288" x1="64" />
             <line x2="0" y1="96" y2="96" x1="64" />
@@ -89,7 +95,7 @@
             <line x2="0" y1="-32" y2="-32" x1="64" />
             <line x2="384" y1="-160" y2="-160" x1="320" />
             <line x2="384" y1="-96" y2="-96" x1="320" />
-            <rect width="256" x="64" y="-192" height="512" />
+            <rect width="256" x="64" y="-192" height="768" />
         </blockdef>
         <blockdef name="PS2_to_STER">
             <timestamp>2017-3-31T10:44:39</timestamp>
@@ -174,6 +180,10 @@
             <blockpin signalname="XLXN_12" name="NewLine" />
             <blockpin signalname="XLXN_21" name="Goto00" />
             <blockpin signalname="XLXN_10(7:0)" name="Char_DI(7:0)" />
+            <blockpin name="Play" />
+            <blockpin name="Pouse" />
+            <blockpin name="P1_RGB(2:0)" />
+            <blockpin name="P2_RGB(2:0)" />
         </block>
         <block symbolname="PS2_to_STER" name="XLXI_9">
             <blockpin signalname="XLXN_81" name="E0" />

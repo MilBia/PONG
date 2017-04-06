@@ -7,11 +7,11 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : Main.vhf
--- /___/   /\     Timestamp : 03/31/2017 13:51:18
+-- /___/   /\     Timestamp : 04/04/2017 11:18:57
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl F:/UCiSW2/VGAtxt/Main.vhf -w F:/UCiSW2/VGAtxt/Main.sch
+--Command: sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl D:/UCiSW2/VGAtxt/Main.vhf -w D:/UCiSW2/VGAtxt/Main.sch
 --Design Name: Main
 --Device: spartan3e
 --Purpose:
@@ -92,7 +92,11 @@ architecture BEHAVIORAL of Main is
              Char_WE : out   std_logic; 
              NewLine : out   std_logic; 
              Goto00  : out   std_logic; 
-             Char_DI : out   std_logic_vector (7 downto 0));
+             Char_DI : out   std_logic_vector (7 downto 0); 
+             Play    : out   std_logic; 
+             Pouse   : out   std_logic; 
+             P1_RGB  : out   std_logic_vector (2 downto 0); 
+             P2_RGB  : out   std_logic_vector (2 downto 0));
    end component;
    
    component PS2_to_STER
@@ -168,7 +172,11 @@ begin
                 Char_DI(7 downto 0)=>XLXN_10(7 downto 0),
                 Char_WE=>XLXN_11,
                 Goto00=>XLXN_21,
-                NewLine=>XLXN_12);
+                NewLine=>XLXN_12,
+                Play=>open,
+                Pouse=>open,
+                P1_RGB=>open,
+                P2_RGB=>open);
    
    XLXI_9 : PS2_to_STER
       port map (Clk=>Clk_50MHz,

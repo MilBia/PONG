@@ -39,7 +39,11 @@ entity MENU is
            Char_DI : out  STD_LOGIC_VECTOR (7 downto 0);
            Char_WE : out  STD_LOGIC;
            NewLine : out  STD_LOGIC;
-           Goto00 : out  STD_LOGIC);
+           Goto00 : out  STD_LOGIC;
+           Play : out  STD_LOGIC;
+           Pouse : out  STD_LOGIC;
+			  P1_RGB : out  STD_LOGIC_VECTOR (2 downto 0);
+			  P2_RGB : out  STD_LOGIC_VECTOR (2 downto 0));
 end MENU;
 
 architecture Behavioral of MENU is
@@ -69,12 +73,14 @@ architecture Behavioral of MENU is
 	signal Char : STD_LOGIC_VECTOR (7 downto 0);
 	signal men : STD_LOGIC;	-- 0 MENU START / 1 OPCJE
 	signal set : STD_LOGIC_VECTOR(2 downto 0);--który wiersz w menu
-	signal P1 : UNSIGNED (2 downto 0);--kolor gracza1
+	signal STER_IN : STD_LOGIC_VECTOR(2 downto 0);--który wiersz w menu
+   signal pom : STD_LOGIC; -- nie wiêcej ni¿ jedne ENTER na raz
+   signal P1 : UNSIGNED (2 downto 0);--kolor gracza1
 	signal P2 : UNSIGNED (2 downto 0);--kolor gracza2
-   signal gramy : STD_LOGIC; -- 0 gra zatrzymana / 1 gra w toku
+   signal gramy : STD_LOGIC; -- 0 nie gramy / 1 w³¹cza grê
+   signal pauza : STD_LOGIC; -- 0 gra trwa / 1 pazua gry
    signal index : integer range 0 to 25;
    signal indey : integer range 0 to 40;
-   signal pom : STD_LOGIC; -- sygna³ bokujacy po jednym ruchu
 	
 begin
 
@@ -89,14 +95,88 @@ begin
       indey <= 0;
 		men <= '0';
 		set <= "001";
+		STER_IN <= "111";
 		Char <= "00100000";
 		gramy <= '0';
 		P1 <= "100";
 		P2 <= "001";
       pom <= '0';
+      pauza <= '0';
       
 	elsif(rising_edge(Clk)) then
 		Clk_Counter <= std_logic_vector( unsigned(Clk_Counter) + 1 );
+      			
+--------------------------------------
+--------------STEROWANIE--------------
+--------------------------------------					
+		
+			Char_WE <= '0';
+			NewLine <= '0';
+			Goto00 <= '0';
+         --MENU START
+			if men = '0' and (STER_IN /= STER1 or pom /= ENTER) then
+            STER_IN <= STER1;
+            pom <= ENTER;
+				if set = "000" then
+					if STER1 = "001" then
+						set <= "001";
+					elsif ENTER = '1' then
+						gramy <= '1';
+					end if;
+				elsif set = "001" then
+					if STER1 = "000" and gramy = '1' then
+						set <= "000";
+					elsif STER1 = "001" then
+						set <= "011";
+					elsif ENTER = '1' then
+						gramy <= '1';
+					end if;
+				else
+					if STER1 = "000" then
+						set <= "001";
+					elsif ENTER = '1' then
+						men <= '1';
+					end if;
+				end if;
+			end if;
+         --MENU OPCJE
+			if men = '1' and (STER_IN /= STER1 or pom /= ENTER) then
+            STER_IN <= STER1;
+            pom <= ENTER;
+				if set = "000" then
+					if STER1 = "001" then
+						set <= "001";
+					elsif ENTER = '1' then
+						men <= '0';
+                  if gramy = '0' then
+                     set <= "001";
+                  end if;
+					end if;
+				elsif set = "001" then
+					if STER1 = "000" then
+						set <= "000";
+					elsif STER1 = "001" then
+						set <= "011";
+					elsif STER1 = "011" and P1 < "111" then
+						P1 <= P1 + 1;
+					elsif STER1 = "010" and P1 > "000" then
+						P1 <= P1 - 1;
+					end if;
+				else
+					if STER1 = "000" then
+						set <= "001";
+					elsif ENTER = '1' then
+						men <= '1';
+					elsif STER1 = "011" and P2 < "111" then
+						P2 <= P2 + 1;
+					elsif STER1 = "010" and P2 > "000" then
+						P2 <= P2 - 1;
+					end if;
+				end if;
+			end if;		
+         if ESC = '1' then
+            pauza <= '1';
+         end if;
 --------------------------------------
 -------------WYŒWIETLANIE-------------
 --------------------------------------
@@ -105,7 +185,7 @@ begin
             case CurrentCounterState is
                when q0 => 
                   Char <= "00100000"; --" "
-                  if (index = 8 and ((gramy = '1' and men = '0') or men = '1')) or index = 10 or index = 12 then
+                  if index = 8 or index = 10 or index = 12 then
                      CurrentCounterState <= q1;
                      indey <= 0;
                   else
@@ -137,35 +217,44 @@ begin
                   index <= 0;
                   CurrentCounterState <= q0;
                when q3 => 
-                  if indey = 17 then
-                     if set = "000" then
-                        Char <= "00101011"; -- "+"
-                     else 
+                  if gramy = '1' then
+                     if indey = 17 then
+                        if set = "000" then
+                           Char <= "00101011"; -- "+"
+                        else 
+                           Char <= "00100000"; -- " "
+                        end if;
+                     elsif indey = 18 then
                         Char <= "00100000"; -- " "
+                     elsif indey = 19 then
+                        Char <= "01001011"; -- "K"
+                     elsif indey = 20 then
+                        Char <= "01001111"; -- "O"
+                     elsif indey = 21 then
+                        Char <= "01001110"; -- "N"
+                     elsif indey = 22 then
+                        Char <= "01010100"; -- "T"
+                     elsif indey = 23 then
+                        Char <= "01011001"; -- "Y"
+                     elsif indey = 24 then
+                        Char <= "01001110"; -- "N"
+                     elsif indey = 25 then
+                        Char <= "01010101"; -- "U"
+                     elsif indey = 26 then
+                        Char <= "01010101"; -- "U"
+                     elsif indey = 27 then
+                        Char <= "01001010"; -- "J"
+                     elsif indey = 28 then
+                        index <= index + 1;
+                        CurrentCounterState <= q0;
                      end if;
-                  elsif indey = 18 then
-                     Char <= "00100000"; -- " "
-                  elsif indey = 19 then
-                     Char <= "01001011"; -- "K"
-                  elsif indey = 20 then
-                     Char <= "01001111"; -- "O"
-                  elsif indey = 21 then
-                     Char <= "01001110"; -- "N"
-                  elsif indey = 22 then
-                     Char <= "01010100"; -- "T"
-                  elsif indey = 23 then
-                     Char <= "01011001"; -- "Y"
-                  elsif indey = 24 then
-                     Char <= "01001110"; -- "N"
-                  elsif indey = 25 then
-                     Char <= "01010101"; -- "U"
-                  elsif indey = 26 then
-                     Char <= "01010101"; -- "U"
-                  elsif indey = 27 then
-                     Char <= "01001010"; -- "J"
-                  elsif indey = 28 then
-                     index <= index + 1;
-                     CurrentCounterState <= q0;
+                  else 
+                     if indey < 28 then
+                        Char <= "00100000"; -- " "
+                     elsif indey = 28 then
+                        index <= index + 1;
+                        CurrentCounterState <= q0;
+                     end if;
                   end if;
                   indey <= indey + 1;
                when q5 => 
@@ -256,7 +345,7 @@ begin
                   elsif indey = 20 then
                      Char <= "00110001"; -- "1"
                   elsif indey = 21 then
-                     Char <= "01000001"; -- " "
+                     Char <= "00100000"; -- " "
                   elsif indey = 22 then
                      if P1(2) = '1' then
                         Char <= "00110001"; -- "1"
@@ -294,7 +383,7 @@ begin
                   elsif indey = 20 then
                      Char <= "00110010"; -- "2"
                   elsif indey = 21 then
-                     Char <= "01000001"; -- " "
+                     Char <= "00100000"; -- " "
                   elsif indey = 22 then
                      if P2(2) = '1' then
                         Char <= "00110001"; -- "1"
@@ -349,76 +438,15 @@ begin
    --				when q11 => Char_DI <= Char ; Char_WE <= '1';
    --				when q12 => Char_DI <= Char ; Char_WE <= '1';
             end case;
-				
---------------------------------------
---------------STEROWANIE--------------
---------------------------------------					
-		else
-			Char_WE <= '0';
-			NewLine <= '0';
-			Goto00 <= '0';
-         --MENU START
-			if men = '0' and pom = '0' then
-            pom <= '1';
-				if set = "000" then
-					if STER1 = "001" then
-						set <= "001";
-					elsif ENTER = '1' then
-						gramy <= '1';
-					end if;
-				elsif set = "001" then
-					if STER1 = "000" then
-						set <= "000";
-					elsif STER1 = "001" then
-						set <= "011";
-					elsif ENTER = '1' then
-						gramy <= '1';
-					end if;
-				else
-					if STER1 = "000" then
-						set <= "001";
-					elsif ENTER = '1' then
-						men <= '1';
-					end if;
-				end if;
-			end if;
-         --MENU OPCJE
-			if men = '1' and pom = '0'  then
-            pom <= '1';
-				if set = "000" then
-					if STER1 = "001" then
-						set <= "001";
-					elsif ENTER = '1' then
-						men <= '0';
-					end if;
-				elsif set = "001" then
-					if STER1 = "000" then
-						set <= "000";
-					elsif STER1 = "001" then
-						set <= "011";
-					elsif STER1 = "011" and P1 < "111" then
-						P1 <= P1 + 1;
-					elsif STER1 = "010" and P1 > "000" then
-						P1 <= P1 - 1;
-					end if;
-				else
-					if STER1 = "000" then
-						set <= "001";
-					elsif ENTER = '1' then
-						men <= '1';
-					elsif STER1 = "011" and P2 < "111" then
-						P2 <= P2 + 1;
-					elsif STER1 = "010" and P2 > "000" then
-						P2 <= P2 - 1;
-					end if;
-				end if;		
-         elsif pom = '1' then
-            pom <= '0';
-			end if;		
+	
 		end if;
 	end if;
 end process;
 
+P1_RGB <= std_logic_vector(P1);
+P2_RGB <= std_logic_vector(P2);
+Play <= gramy;
+Pouse <= pauza;
 
 end Behavioral;
 

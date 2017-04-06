@@ -9,5 +9,9 @@ Busy
 Char_WE
 NewLine
 Goto00
+Play
+Pouse
 =Char_DI[7:0]=
+=P1_RGB[2:0]=
+=P2_RGB[2:0]=
 [BiDir]
