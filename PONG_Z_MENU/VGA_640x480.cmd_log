@@ -1,0 +1,2 @@
+vhdtdtfi -lib work VGA_640x480.vhd -prj PONG_Z_MENU -o VGA_640x480.spl -module VGA_640x480 -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_640x480.spl D:/NAUKA/Xilinx/PONG_Z_MENU/VGA_640x480.sym 

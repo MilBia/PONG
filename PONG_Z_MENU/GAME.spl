@@ -1,0 +1,17 @@
+[Inputs]
+ENTER
+ESC
+CLK
+CLR
+Play
+Pouse
+=X[9:0]=
+=Y[9:0]=
+=P1[2:0]=
+=P2[2:0]=
+=P1_RGB[2:0]=
+=P2_RGB[2:0]=
+[Outputs]
+Finish
+=RGB[2:0]=
+[BiDir]

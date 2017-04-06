@@ -1,0 +1,2 @@
+vhdtdtfi -lib work OUTPUT.vhd -prj PONG_Z_MENU -o OUTPUT.spl -module OUTPUT -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e OUTPUT.spl D:/NAUKA/Xilinx/PONG_Z_MENU/OUTPUT.sym 
