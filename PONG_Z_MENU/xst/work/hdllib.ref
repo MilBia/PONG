@@ -1,0 +1,12 @@
+EN menu NULL D:/PONG_Z_MENU/MENU.vhd sub00/vhpl02 1491569117
+AR game behavioral D:/PONG_Z_MENU/GAME.vhd sub00/vhpl01 1491569116
+AR vga_640x480 behavioral D:/PONG_Z_MENU/VGA_640x480.vhd sub00/vhpl09 1491569124
+AR main behavioral D:/PONG_Z_MENU/main.vhf sub00/vhpl11 1491569126
+EN output NULL D:/PONG_Z_MENU/OUTPUT.vhd sub00/vhpl04 1491569119
+EN vga_640x480 NULL D:/PONG_Z_MENU/VGA_640x480.vhd sub00/vhpl08 1491569123
+EN main NULL D:/PONG_Z_MENU/main.vhf sub00/vhpl10 1491569125
+AR output behavioral D:/PONG_Z_MENU/OUTPUT.vhd sub00/vhpl05 1491569120
+EN game NULL D:/PONG_Z_MENU/GAME.vhd sub00/vhpl00 1491569115
+AR ps2_to_ster behavioral D:/PONG_Z_MENU/PS2_to_STER.vhd sub00/vhpl07 1491569122
+AR menu behavioral D:/PONG_Z_MENU/MENU.vhd sub00/vhpl03 1491569118
+EN ps2_to_ster NULL D:/PONG_Z_MENU/PS2_to_STER.vhd sub00/vhpl06 1491569121

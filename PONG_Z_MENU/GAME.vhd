@@ -80,6 +80,7 @@ signal pauza : STD_LOGIC; -- 0 gra trwa / 1 pazua gry
 signal koniec : STD_LOGIC; -- 0 gramy / 1 koniec gry
 signal  RGB1 :  STD_LOGIC_VECTOR (2 downto 0);
 signal  RGB2 :  STD_LOGIC_VECTOR (2 downto 0);
+signal restart : STD_LOGIC;
 
 begin
 Xi <= TO_INTEGER( UNSIGNED( x));
@@ -90,9 +91,9 @@ P2i <= P2;
 
 RGB1 <= P1_RGB;
 RGB2 <= P2_RGB;
-gramy <= Play;
-pauza <= Pouse;
 
+--gramy <= Play;
+pauza <= Pouse;
 Finish <= koniec;
 
 Cloc: process (CLK, CLR)
@@ -104,9 +105,9 @@ begin
    end if;
 end process;
 
-gra : process(Clock, CLR, Play, Pouse)
+gra : process(Clock, CLR)
 begin
-	if CLR = '1' or rising_edge( Play ) then
+	if CLR = '1' then
 		RGB <= "000";
       Xkw <= 279;
       Ykw <= 0;
@@ -152,7 +153,7 @@ begin
 --         Ykw <= pal2 + 50;
 --      end if;
 		--sterowanie pi³eczk¹ / zwolnienie zegara
-      if Yi = 479 and gramy = '1' then
+      if Yi = 479 and Play = '1' then
          temp <= temp +1;
          if temp = 0 then
          --PI£ECZAK
@@ -176,7 +177,7 @@ begin
 						else
 							pkt2 <= pkt2 + 1;
                      if pkt2 = 4 then
-                        gramy <= '0';
+                        koniec <= '1';
                      end if;
 							Xkw <= 618 - R;
 							Ykw <= pal1 + 50;
@@ -190,7 +191,7 @@ begin
 						else
 							pkt1 <= pkt1 + 1;
                      if pkt1 = 4 then
-                        gramy <= '0';
+                        koniec <= '1';
                      end if;
 							Xkw <= 39;
 							Ykw <= pal2 + 50;

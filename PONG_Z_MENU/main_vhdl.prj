@@ -1,0 +1,6 @@
+vhdl work "D:\PONG_Z_MENU\VGA_640x480.vhd"
+vhdl work "D:\PONG_Z_MENU\PS2_to_STER.vhd"
+vhdl work "D:\PONG_Z_MENU\OUTPUT.vhd"
+vhdl work "D:\PONG_Z_MENU\MENU.vhd"
+vhdl work "D:\PONG_Z_MENU\GAME.vhd"
+vhdl work "D:\PONG_Z_MENU\main.vhf"

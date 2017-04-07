@@ -4,3 +4,13 @@ vhdtdtfi -lib work GAME.vhd -prj PONG_Z_MENU -o GAME.spl -module GAME -template 
 spl2sym -intstyle ise -family spartan3e GAME.spl D:/NAUKA/Xilinx/PONG_Z_MENU/GAME.sym 
 vhdtdtfi -lib work GAME.vhd -prj PONG_Z_MENU -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
 spl2sym -intstyle ise -family spartan3e GAME.spl D:/NAUKA/Xilinx/PONG_Z_MENU/GAME.sym 
+vhdtdtfi -lib work GAME.vhd -prj PONG_Z_MENU -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl D:/PONG_Z_MENU/GAME.sym 
+vhdtdtfi -lib work GAME.vhd -prj PONG_Z_MENU -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl D:/PONG_Z_MENU/GAME.sym 
+vhdtdtfi -lib work GAME.vhd -prj PONG_Z_MENU -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl D:/PONG_Z_MENU/GAME.sym 
+vhdtdtfi -lib work GAME.vhd -prj PONG_Z_MENU -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl D:/PONG_Z_MENU/GAME.sym 
+vhdtdtfi -lib work GAME.vhd -prj PONG_Z_MENU -o GAME.spl -module GAME -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e GAME.spl D:/PONG_Z_MENU/GAME.sym 

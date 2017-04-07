@@ -122,7 +122,7 @@ begin
 					if STER1 = "001" then
 						set <= "001";
 					elsif ENTER = '1' then
-						pouse <= '0';
+						pauza <= '0';
 					end if;
 				elsif set = "001" then
 					if STER1 = "000" and gramy = '1' then
@@ -131,7 +131,7 @@ begin
 						set <= "011";
 					elsif ENTER = '1' then
 						gramy <= '1';
-						pouse <= '0';
+						pauza <= '0';
 					end if;
 				else
 					if STER1 = "000" then
@@ -180,7 +180,7 @@ begin
             pauza <= '1';
          end if;
 			if Finish = '1' then
-				pouse <= '0';
+				pauza <= '0';
 				gramy <= '0';
 			end if;
 --------------------------------------

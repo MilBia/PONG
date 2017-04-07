@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="GAME">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2017-4-6T23:25:15</timestamp>
+    <timestamp>2017-4-7T12:43:36</timestamp>
     <pin polarity="Input" x="0" y="-480" name="ENTER" />
     <pin polarity="Input" x="0" y="-416" name="ESC" />
     <pin polarity="Input" x="0" y="-352" name="CLK" />
