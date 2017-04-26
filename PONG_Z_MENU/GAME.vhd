@@ -34,8 +34,6 @@ entity GAME is
            Y : in  STD_LOGIC_VECTOR (9 downto 0);
            P1 : in  STD_LOGIC_VECTOR (2 downto 0);
            P2 : in  STD_LOGIC_VECTOR (2 downto 0);
-           ENTER : in  STD_LOGIC;
-           ESC : in  STD_LOGIC;
            CLK : in  STD_LOGIC;
            CLR : in  STD_LOGIC;
            Play : in  STD_LOGIC;
@@ -70,17 +68,15 @@ signal  pal2 : Integer range 0 to 1023;
 constant palX :  Integer:=15;
 constant palY :  Integer:=100;
 --punkty
-signal pkt1 : Integer range 0 to 5;
-signal pkt2 : Integer range 0 to 5;
+signal pkt1 : Integer range 0 to 6;
+signal pkt2 : Integer range 0 to 6;
+signal Velocity : Integer range 0 to 6;
 signal Vx :  STD_LOGIC;
 signal Vy :  STD_LOGIC;
 --czy gramy
-signal gramy : STD_LOGIC; -- 0 nie gramy / 1 w³¹cza grê
-signal pauza : STD_LOGIC; -- 0 gra trwa / 1 pazua gry
 signal koniec : STD_LOGIC; -- 0 gramy / 1 koniec gry
 signal  RGB1 :  STD_LOGIC_VECTOR (2 downto 0);
 signal  RGB2 :  STD_LOGIC_VECTOR (2 downto 0);
-signal restart : STD_LOGIC;
 
 begin
 Xi <= TO_INTEGER( UNSIGNED( x));
@@ -92,8 +88,6 @@ P2i <= P2;
 RGB1 <= P1_RGB;
 RGB2 <= P2_RGB;
 
---gramy <= Play;
-pauza <= Pouse;
 Finish <= koniec;
 
 Cloc: process (CLK, CLR)
@@ -113,6 +107,7 @@ begin
       Ykw <= 0;
       Vx <='1';
       Vy <='1';
+      Velocity <= 4;
       temp <= 0;
 		pkt1 <= 0;
 		pkt2 <= 0;
@@ -144,14 +139,6 @@ begin
 		else --t³o
 			RGB <="000";
 		end if;
-      --ENTER startuje grê
---      if ENTER = '1' and gramy = '0' then
---         gramy <='1';
---         pkt1 <= 0;
---         pkt2 <= 0;
---         Xkw <= 39;
---         Ykw <= pal2 + 50;
---      end if;
 		--sterowanie pi³eczk¹ / zwolnienie zegara
       if Yi = 479 and Play = '1' then
          temp <= temp +1;
@@ -172,12 +159,21 @@ begin
             if Vx ='1' then
                Xkw <= Xkw + 1;
                if Xkw+R = 618 then --prawa banda
-						if Ykw>pal1 and Ykw<pal1+palY then
+						if Ykw>pal1+10 and Ykw<pal1+palY-10 then
 							Vx <= '0';
+                  elsif Ykw>pal1-R and Ykw<=pal1+10 then
+							Vx <= '0';
+							Vy <= '0';
+                  elsif Ykw>=pal1+palY-10 and Ykw<pal1+palY then
+							Vx <= '0';
+							Vy <= '1';
 						else
 							pkt2 <= pkt2 + 1;
                      if pkt2 = 4 then
                         koniec <= '1';
+                     end if;
+                     if pkt2 > Velocity then
+                        Velocity <= Velocity + (pkt2 * 2);
                      end if;
 							Xkw <= 618 - R;
 							Ykw <= pal1 + 50;
@@ -186,12 +182,21 @@ begin
             else
                Xkw <= Xkw - 1;
                if Xkw = 39 then --lewa banda
-						if Ykw>pal2 and Ykw<pal2+palY then
+						if Ykw>pal2+10 and Ykw<pal2+palY-10 then
 							Vx <= '1';
+                  elsif Ykw>pal2-R and Ykw<=pal2+10 then
+							Vx <= '1';
+							Vy <= '0';
+                  elsif Ykw>=pal2+palY-10 and Ykw<pal2+palY then
+							Vx <= '1';
+							Vy <= '1';
 						else
 							pkt1 <= pkt1 + 1;
                      if pkt1 = 4 then
                         koniec <= '1';
+                     end if;
+                     if pkt1 > Velocity then
+                        Velocity <= Velocity + (pkt1 * 2);
                      end if;
 							Xkw <= 39;
 							Ykw <= pal2 + 50;
@@ -201,15 +206,15 @@ begin
          --PALETKI
             --sterowanie paletk¹1
             if (P1i = "000" or P1i = "011") and pal1-1>0 then
-                  pal1 <= pal1 - 1 ;
+                  pal1 <= pal1 - Velocity ;
                elsif (P1i = "001" or P1i = "010") and pal1+1+palY<479 then
-                  pal1 <= pal1 + 1 ;
+                  pal1 <= pal1 + Velocity ;
             end if;
             --sterowanie paletk¹2
             if (P2i = "000" or P2i = "011") and pal2-1>0 then
-                  pal2 <= pal2 - 1 ;
+                  pal2 <= pal2 - Velocity ;
                elsif (P2i = "001" or P2i = "010") and pal2+1+palY<479 then
-                  pal2 <= pal2 + 1 ;
+                  pal2 <= pal2 + Velocity ;
             end if;
          end if;
 		end if;

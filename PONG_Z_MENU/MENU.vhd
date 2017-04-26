@@ -43,6 +43,7 @@ entity MENU is
            Goto00 : out  STD_LOGIC;
            Play : out  STD_LOGIC;
            Pouse : out  STD_LOGIC;
+           Restart : out  STD_LOGIC;
 			  P1_RGB : out  STD_LOGIC_VECTOR (2 downto 0);
 			  P2_RGB : out  STD_LOGIC_VECTOR (2 downto 0));
 end MENU;
@@ -82,6 +83,8 @@ architecture Behavioral of MENU is
    signal pauza : STD_LOGIC; -- 0 gra trwa / 1 pazua gry
    signal index : integer range 0 to 25;
    signal indey : integer range 0 to 40;
+	signal restart_game : STD_LOGIC;	-- 0 notting / 1 restart_game
+	signal restart_tepm : UNSIGNED (1 downto 0);
 	
 begin
 
@@ -103,10 +106,19 @@ begin
 		P2 <= "001";
       pom <= '0';
       pauza <= '0';
+      restart_game <= '0';
+      restart_tepm <= "00";
       
 	elsif(rising_edge(Clk)) then
 		Clk_Counter <= std_logic_vector( unsigned(Clk_Counter) + 1 );
-      			
+         
+         if restart_game = '1' and restart_tepm < "11" then
+            gramy <= '1';
+            pauza <= '0';
+            restart_tepm <= restart_tepm + 1;
+         elsif restart_tepm = "11" then
+            restart_game <= '0';
+         end if;
 --------------------------------------
 --------------STEROWANIE--------------
 --------------------------------------					
@@ -130,8 +142,10 @@ begin
 					elsif STER1 = "001" then
 						set <= "011";
 					elsif ENTER = '1' then
-						gramy <= '1';
-						pauza <= '0';
+                  restart_game <='1';
+                  restart_tepm <= "00";
+						--gramy <= '1';
+						--pauza <= '0';
 					end if;
 				else
 					if STER1 = "000" then
@@ -180,6 +194,7 @@ begin
             pauza <= '1';
          end if;
 			if Finish = '1' then
+				set <= "001";
 				pauza <= '0';
 				gramy <= '0';
 			end if;
@@ -453,6 +468,7 @@ P1_RGB <= std_logic_vector(P1);
 P2_RGB <= std_logic_vector(P2);
 Play <= gramy;
 Pouse <= pauza;
+Restart <= restart_game;
 
 end Behavioral;
 

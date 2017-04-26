@@ -7,11 +7,11 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : main.vhf
--- /___/   /\     Timestamp : 04/07/2017 13:45:06
+-- /___/   /\     Timestamp : 04/25/2017 09:55:19
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl D:/PONG_Z_MENU/main.vhf -w D:/PONG_Z_MENU/main.sch
+--Command: sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl "D:/PONG_Z_MENU - Kopia/main.vhf" -w "D:/PONG_Z_MENU - Kopia/main.sch"
 --Design Name: main
 --Device: spartan3e
 --Purpose:
@@ -49,7 +49,6 @@ architecture BEHAVIORAL of main is
    signal XLXN_8    : std_logic;
    signal XLXN_9    : std_logic;
    signal XLXN_10   : std_logic;
-   signal XLXN_16   : std_logic;
    signal XLXN_18   : std_logic;
    signal XLXN_20   : std_logic;
    signal XLXN_21   : std_logic_vector (7 downto 0);
@@ -58,7 +57,6 @@ architecture BEHAVIORAL of main is
    signal XLXN_26   : std_logic;
    signal XLXN_28   : std_logic_vector (2 downto 0);
    signal XLXN_30   : std_logic_vector (2 downto 0);
-   signal XLXN_38   : std_logic_vector (9 downto 0);
    signal XLXN_39   : std_logic_vector (9 downto 0);
    signal XLXN_49   : std_logic;
    signal XLXN_51   : std_logic;
@@ -70,10 +68,12 @@ architecture BEHAVIORAL of main is
    signal XLXN_75   : std_logic;
    signal XLXN_82   : std_logic;
    signal XLXN_83   : std_logic;
+   signal XLXN_84   : std_logic;
+   signal XLXN_85   : std_logic;
+   signal XLXN_91   : std_logic;
+   signal XLXN_92   : std_logic_vector (9 downto 0);
    component GAME
-      port ( ENTER  : in    std_logic; 
-             ESC    : in    std_logic; 
-             CLK    : in    std_logic; 
+      port ( CLK    : in    std_logic; 
              CLR    : in    std_logic; 
              Play   : in    std_logic; 
              Pouse  : in    std_logic; 
@@ -100,6 +100,7 @@ architecture BEHAVIORAL of main is
              Goto00  : out   std_logic; 
              Play    : out   std_logic; 
              Pouse   : out   std_logic; 
+             Restart : out   std_logic; 
              Char_DI : out   std_logic_vector (7 downto 0); 
              P1_RGB  : out   std_logic_vector (2 downto 0); 
              P2_RGB  : out   std_logic_vector (2 downto 0));
@@ -192,16 +193,14 @@ architecture BEHAVIORAL of main is
 begin
    XLXI_1 : GAME
       port map (CLK=>Clk_50MHz,
-                CLR=>btn_south,
-                ENTER=>XLXN_16,
-                ESC=>XLXN_18,
+                CLR=>XLXN_91,
                 Play=>XLXN_60,
                 Pouse=>XLXN_61,
                 P1(2 downto 0)=>XLXN_28(2 downto 0),
                 P1_RGB(2 downto 0)=>XLXN_62(2 downto 0),
                 P2(2 downto 0)=>XLXN_30(2 downto 0),
                 P2_RGB(2 downto 0)=>XLXN_63(2 downto 0),
-                X(9 downto 0)=>XLXN_38(9 downto 0),
+                X(9 downto 0)=>XLXN_92(9 downto 0),
                 Y(9 downto 0)=>XLXN_39(9 downto 0),
                 Finish=>XLXN_75,
                 RGB(2 downto 0)=>XLXN_5(2 downto 0));
@@ -209,7 +208,7 @@ begin
    XLXI_2 : MENU
       port map (Busy=>XLXN_49,
                 Clk=>Clk_50MHz,
-                ENTER=>XLXN_16,
+                ENTER=>XLXN_84,
                 ESC=>XLXN_18,
                 Finish=>XLXN_75,
                 Reset=>btn_south,
@@ -221,7 +220,8 @@ begin
                 Play=>XLXN_60,
                 Pouse=>XLXN_61,
                 P1_RGB(2 downto 0)=>XLXN_62(2 downto 0),
-                P2_RGB(2 downto 0)=>XLXN_63(2 downto 0));
+                P2_RGB(2 downto 0)=>XLXN_63(2 downto 0),
+                Restart=>XLXN_85);
    
    XLXI_3 : OUTPUT
       port map (B1=>XLXN_10,
@@ -257,7 +257,7 @@ begin
                 E0=>XLXN_2,
                 F0=>XLXN_3,
                 RS2_Rdy=>XLXN_4,
-                ENTER=>XLXN_16,
+                ENTER=>XLXN_84,
                 ESC=>XLXN_18,
                 P1(2 downto 0)=>XLXN_28(2 downto 0),
                 P2(2 downto 0)=>XLXN_30(2 downto 0));
@@ -271,7 +271,7 @@ begin
                 HS=>XLXN_6,
                 R=>XLXN_8,
                 VS=>XLXN_7,
-                X(9 downto 0)=>XLXN_38(9 downto 0),
+                X(9 downto 0)=>XLXN_92(9 downto 0),
                 Y(9 downto 0)=>XLXN_39(9 downto 0));
    
    XLXI_7 : VGAtxt48x20
@@ -297,6 +297,11 @@ begin
    
    XLXI_9 : GND
       port map (G=>XLXN_83);
+   
+   XLXI_10 : OR2
+      port map (I0=>btn_south,
+                I1=>XLXN_85,
+                O=>XLXN_91);
    
 end BEHAVIORAL;
 
