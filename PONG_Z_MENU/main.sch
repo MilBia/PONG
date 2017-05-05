@@ -29,7 +29,6 @@
         <signal name="VGA_R" />
         <signal name="VGA_G" />
         <signal name="VGA_B" />
-        <signal name="XLXN_38(9:0)" />
         <signal name="XLXN_39(9:0)" />
         <signal name="PS2_Clk" />
         <signal name="PS2_Data" />
@@ -47,9 +46,6 @@
         <signal name="XLXN_83" />
         <signal name="XLXN_84" />
         <signal name="XLXN_85" />
-        <signal name="XLXN_86" />
-        <signal name="XLXN_87" />
-        <signal name="XLXN_89" />
         <signal name="XLXN_91" />
         <signal name="XLXN_92(9:0)" />
         <port polarity="Output" name="VGA_HS" />
@@ -62,7 +58,7 @@
         <port polarity="Input" name="Clk_50MHz" />
         <port polarity="Input" name="btn_south" />
         <blockdef name="GAME">
-            <timestamp>2017-4-25T8:54:47</timestamp>
+            <timestamp>2017-4-28T9:39:25</timestamp>
             <line x2="0" y1="32" y2="32" x1="64" />
             <line x2="0" y1="96" y2="96" x1="64" />
             <rect width="64" x="0" y="148" height="24" />

@@ -53,7 +53,7 @@ signal  Xi :  Integer range 0 to 1023;
 signal  Yi :  Integer range 0 to 1023;
 --wspó³rzêdne pi³eczki
 signal  Xkw: Integer range 0 to 640;
-signal  Ykw: Integer range 0 to 480;
+signal  Ykw: Integer range -10 to 500;
 --co ile odswierzyæ po³o¿enie pi³eczki
 signal  temp: Integer range 0 to 511;
 --rozmiar pi³eczki
@@ -146,19 +146,19 @@ begin
          --PI£ECZAK
             --inkrementacje i odbicia
             if Vy ='1' then
-               Ykw <= Ykw + 1;
-               if Ykw+R = 478 then --dolna banda
+               Ykw <= Ykw + Velocity;
+               if Ykw+R > 478 then --dolna banda
                   Vy <= '0';
                end if;
             else
-               Ykw <= Ykw - 1;
-               if Ykw = 1 then --górna banda
+               Ykw <= Ykw - Velocity;
+               if Ykw < 1 then --górna banda
                   Vy <= '1';
                end if;
             end if;
             if Vx ='1' then
-               Xkw <= Xkw + 1;
-               if Xkw+R = 618 then --prawa banda
+               Xkw <= Xkw + Velocity;
+               if Xkw+R > 618 then --prawa banda
 						if Ykw>pal1+10 and Ykw<pal1+palY-10 then
 							Vx <= '0';
                   elsif Ykw>pal1-R and Ykw<=pal1+10 then
@@ -173,15 +173,15 @@ begin
                         koniec <= '1';
                      end if;
                      if pkt2 > Velocity then
-                        Velocity <= Velocity + (pkt2 * 2);
+                        Velocity <= Velocity + pkt2;
                      end if;
 							Xkw <= 618 - R;
 							Ykw <= pal1 + 50;
 						end if;
                end if;
             else
-               Xkw <= Xkw - 1;
-               if Xkw = 39 then --lewa banda
+               Xkw <= Xkw - Velocity;
+               if Xkw < 39 then --lewa banda
 						if Ykw>pal2+10 and Ykw<pal2+palY-10 then
 							Vx <= '1';
                   elsif Ykw>pal2-R and Ykw<=pal2+10 then
@@ -196,7 +196,7 @@ begin
                         koniec <= '1';
                      end if;
                      if pkt1 > Velocity then
-                        Velocity <= Velocity + (pkt1 * 2);
+                        Velocity <= Velocity + pkt1;
                      end if;
 							Xkw <= 39;
 							Ykw <= pal2 + 50;
@@ -205,16 +205,16 @@ begin
             end if;
          --PALETKI
             --sterowanie paletk¹1
-            if (P1i = "000" or P1i = "011") and pal1-1>0 then
+            if (P1i = "000" or P1i = "011") and pal1-Velocity>0 then
                   pal1 <= pal1 - Velocity ;
-               elsif (P1i = "001" or P1i = "010") and pal1+1+palY<479 then
+               elsif (P1i = "001" or P1i = "010") and pal1+Velocity+palY<479 then
                   pal1 <= pal1 + Velocity ;
             end if;
             --sterowanie paletk¹2
-            if (P2i = "000" or P2i = "011") and pal2-1>0 then
+            if (P2i = "000" or P2i = "011") and pal2-Velocity>0 then
                   pal2 <= pal2 - Velocity ;
-               elsif (P2i = "001" or P2i = "010") and pal2+1+palY<479 then
-                  pal2 <= pal2 + Velocity ;
+               elsif (P2i = "001" or P2i = "010") and pal2+Velocity+palY<479 then
+                  pal2 <= pal2 +Velocity ;
             end if;
          end if;
 		end if;

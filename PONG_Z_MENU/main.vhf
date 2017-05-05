@@ -7,11 +7,11 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : main.vhf
--- /___/   /\     Timestamp : 04/25/2017 09:55:19
+-- /___/   /\     Timestamp : 04/28/2017 11:39:50
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl "D:/PONG_Z_MENU - Kopia/main.vhf" -w "D:/PONG_Z_MENU - Kopia/main.sch"
+--Command: sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl "F:/PONG_Z_MENU - Kopia/main.vhf" -w "F:/PONG_Z_MENU - Kopia/main.sch"
 --Design Name: main
 --Device: spartan3e
 --Purpose:
